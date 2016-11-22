@@ -1,0 +1,9 @@
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.dacpac
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.dll
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.pdb
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\Model.xml
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\refactor.xml
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\postdeploy.sql
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\predeploy.sql
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.dll
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb

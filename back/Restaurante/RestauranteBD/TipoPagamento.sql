@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[TipoPagamento]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Nome] NVARCHAR(10) NOT NULL
+)
