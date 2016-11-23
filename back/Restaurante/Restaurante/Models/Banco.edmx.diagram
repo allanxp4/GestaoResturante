@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f59d198511834c36b1f278fc3e66505e" Name="Diagram1">
+        <EntityTypeShape EntityType="RestauranteBDModel.Ambiente" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.Conta" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.Mesa" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.Pagamento" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.Pedido" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.Produto" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.TipoPagamento" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.TipoProduto" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauranteBDModel.Usuario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Mesa_ToAmbiente" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Conta_ToMesa" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Conta_ToUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Pagamento_ToConta" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToConta" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Pagamento_ToTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToProduto" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Produto_ToTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Usuario_ToTipo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

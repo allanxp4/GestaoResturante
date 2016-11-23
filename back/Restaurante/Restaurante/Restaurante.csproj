@@ -113,15 +113,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Models\RestauranteModel.Context.tt">
+    <Content Include="Models\Banco.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RestauranteModel.edmx</DependentUpon>
-      <LastGenOutput>RestauranteModel.Context.cs</LastGenOutput>
+      <DependentUpon>Banco.edmx</DependentUpon>
+      <LastGenOutput>Banco.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\RestauranteModel.tt">
+    <Content Include="Models\Banco.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RestauranteModel.edmx</DependentUpon>
-      <LastGenOutput>RestauranteModel.cs</LastGenOutput>
+      <DependentUpon>Banco.edmx</DependentUpon>
+      <LastGenOutput>Banco.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -132,64 +132,64 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Ambiente.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Banco.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Banco.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Banco.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Banco.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Banco.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Conta.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__RefactorLog.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Mesa.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pagamento.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pedido.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produto.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RestauranteModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RestauranteModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RestauranteModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RestauranteModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RestauranteModel.edmx</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoPagamento.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoProduto.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoUsuario.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
-      <DependentUpon>RestauranteModel.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="UnitsOfWork\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\RestauranteModel.edmx">
+    <EntityDeploy Include="Models\Banco.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RestauranteModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Banco.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\RestauranteModel.edmx.diagram">
-      <DependentUpon>RestauranteModel.edmx</DependentUpon>
+    <Content Include="Models\Banco.edmx.diagram">
+      <DependentUpon>Banco.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

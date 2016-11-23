@@ -24,6 +24,6 @@ namespace Restaurante.Models
     
         public virtual Conta Conta { get; set; }
         public virtual Produto Produto { get; set; }
-        public virtual Usuario UsuarioAtendimento { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

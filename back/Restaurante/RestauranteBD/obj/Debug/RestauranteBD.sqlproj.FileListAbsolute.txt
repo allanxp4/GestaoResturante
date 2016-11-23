@@ -7,3 +7,8 @@ C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Deb
 C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\predeploy.sql
 C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.dll
 C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb
+C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.dacpac
+C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.dll
+C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.pdb
+C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.dll
+C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb
