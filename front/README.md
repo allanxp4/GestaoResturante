@@ -56,7 +56,7 @@ só vai servir para o próprio componente, ou seja, se você usar o seletor p,
 ele só vai valer para os p do nosso componente.
 
 App.vue: o componente base: perceba que ele declara a utilização do componente
-Hello, e usa ele no template com a tag `<hello>, como se fosse uma tag padrão.
+Hello, e usa ele no template com a tag <hello>, como se fosse uma tag padrão.
 
 main.js: O 'entry point' da aplicação, que cria a instância do Vue e
 inicia ele na id "app" do index.html.
