@@ -12,3 +12,12 @@ C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\bin\Debug\Rest
 C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.pdb
 C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.dll
 C:\Users\PC\Desktop\Nova pasta (2)\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.dacpac
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.dll
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\bin\Debug\RestauranteBD.pdb
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\Model.xml
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\refactor.xml
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\postdeploy.sql
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\predeploy.sql
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.dll
+C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb
