@@ -1,4 +1,4 @@
-var app = angular.module('restaurante', ['ngRoute', 'ngSanitize', 'ui.select'])
+var app = angular.module('restaurante', ['ngRoute', 'ngSanitize', 'rt.select2'])
     .config(function($routeProvider){
         $routeProvider.when('/novopedido', {
             templateUrl: '/views/pedido.html',

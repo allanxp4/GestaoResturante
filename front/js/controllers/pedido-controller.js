@@ -1,15 +1,29 @@
 app.controller('PedidoController', function($scope, $http){
-    
-    $scope.pedido = {}
+
+    $scope.pedido = {
+        produtos: []
+    };
+
+   /* 
+    $scope.pedido = {
+        mesa: 0,
+        produtos: {
+            id: 0,
+            quantidade: 0
+        }
+    };*/
+
+    /*
+    $scope.produtoAtual = {
+        quantidade: 0
+    };*/
 
     $scope.qtd = 0;
 
-    $scope.aumentaQtd = function(){
-        $scope.qtd++;
-    }
-
-    $scope.diminuiQtd = function(){
-        $scope.qtd--;
+    $scope.adicionarProduto = function(){
+        console.log($scope.produtoAtual)
+        $scope.produtoAtual.quantidade = $scope.qtd;
+        $scope.pedido.produtos.push($scope.produtoAtual);
     }
 
     $scope.pedido.produtos = [
@@ -32,13 +46,11 @@ app.controller('PedidoController', function($scope, $http){
         {
             id: "1",
             descricao: "Burgão2",
-            quantidade: 2,
             preco: 12.98
         },
         {
             id: "2",
             descricao: "Coisa2",
-            quantidade: 5,
             preco: 5.10
         }
     ]

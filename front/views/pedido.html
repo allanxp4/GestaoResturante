@@ -13,31 +13,28 @@
 
                       <div class="form-group">                        
                         <div class="col-md-6 col-sm-6 col-xs-4">                                              
-                          <input type="text" id="mesa" ng-model="pedido.mesa"  placeholder="Mesa" class="form-control">
-                         
+                          <input type="text" id="mesa" ng-model="pedido.mesa"  placeholder="Mesa" class="form-control">                         
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 pull-right normalize">
+                          <div class="input-group">                            
+                            <span class="input-group-btn">
+                                <button ng-click="qtd = qtd + 1" class="btn btn-primary">-</button>
+                            </span>
+                            <input type="number" ng-model="qtd" class="form-control">
+                            <span class="input-group-btn">
+                                <button ng-click="qtd = qtd + 1" class="btn btn-primary">+</button>
+                            </span>                     
+                              
+                              
+                          </div>  
                         </div>
                       </div>
                     </div>
                     <div class="row">
                      <div class="form-group">  
-                                         
-                        <div class="col-md-6 col-sm-6 col-xs-7">
-                          <input type="text" ng-model="produto" id="produto" placeholder="Produto" class="form-control">                        
-                        </div>    
-                         
-                        <div class="input-group">                            
-                          <span class="input-group-btn">
-                              <button ng-click="diminuiQtd()" class="btn btn-primary">-</button>
-                          </span>
-                          <input type="number" ng-model="qtd" class="form-control">
-                          <span class="input-group-btn">
-                              <button ng-click="aumentaQtd()" class="btn btn-primary">+</button>
-                          </span>                     
-                              
-                              
-                        </div>      
-                                  
-                        
+                                                                     
+                          <select2 class="col-xs-12" ng-model="produtoAtual" s2-options="p as p.descricao for p in produtos"></select2>
+                                                                         
                       </div>
                     </div>
 
@@ -46,9 +43,9 @@
                     <div  class="row">
                       <div class="form-group">
                         <div class="col-xs-12">
-                          <button class="btn btn-primary btn-block">Adicionar Produto</button>
+                          <button class="btn btn-primary btn-block" ng-click="adicionarProduto(produtoAtual)">Adicionar Produto</button>
                         </div>
-                      </div>
+                      </div>"
                     </div> 
 
 
@@ -65,7 +62,7 @@
                               <th>R$</th>
                             </tr>
                           </thead>
-                          <tbody ng-repeat="p in pedido.produtos">
+                          <tbody ng-repeat="p in pedido.produtos track by $index">
                             <tr>
                               <td>{{ p.id }}</td>
                               <td>{{ p.descricao }}</td>
