@@ -12,30 +12,70 @@
                     <div class="row">
 
                       <div class="form-group">                        
-                        <div class="col-md-6 col-sm-6 col-xs-4">
-                          <input type="text" id="mesa"  placeholder="Mesa" class="form-control col-md-7 col-xs-12">
+                        <div class="col-md-6 col-sm-6 col-xs-4">                                              
+                          <input type="text" id="mesa" ng-model="pedido.mesa"  placeholder="Mesa" class="form-control">
+                         
                         </div>
                       </div>
                     </div>
-
                     <div class="row">
-                      <div class="form-group">  
+                     <div class="form-group">  
                                          
                         <div class="col-md-6 col-sm-6 col-xs-7">
-                          <input type="text" id="produto" placeholder="Produto" class="form-control">                        
+                          <input type="text" ng-model="produto" id="produto" placeholder="Produto" class="form-control">                        
                         </div>    
                          
                         <div class="input-group">                            
-                                <span class="input-group-btn">
-                                    <button ng-click="diminuiQtd()" class="btn btn-primary">-</button>
-                                </span>
-                            <input type="number" ng-model="qtd" class="form-control">
-                                <span class="input-group-btn">
-                                    <button ng-click="aumentaQtd()" class="btn btn-primary">+</button>
-                                </span>                       
+                          <span class="input-group-btn">
+                              <button ng-click="diminuiQtd()" class="btn btn-primary">-</button>
+                          </span>
+                          <input type="number" ng-model="qtd" class="form-control">
+                          <span class="input-group-btn">
+                              <button ng-click="aumentaQtd()" class="btn btn-primary">+</button>
+                          </span>                     
                               
-                        </div>                
+                              
+                        </div>      
+                                  
                         
+                      </div>
+                    </div>
+
+                                   
+
+                    <div  class="row">
+                      <div class="form-group">
+                        <div class="col-xs-12">
+                          <button class="btn btn-primary btn-block">Adicionar Produto</button>
+                        </div>
+                      </div>
+                    </div> 
+
+
+                    
+
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Cod</th>
+                              <th>Descrição</th>
+                              <th>Qtd</th>
+                              <th>R$</th>
+                            </tr>
+                          </thead>
+                          <tbody ng-repeat="p in pedido.produtos">
+                            <tr>
+                              <td>{{ p.id }}</td>
+                              <td>{{ p.descricao }}</td>
+                              <td>{{ p.quantidade }}</td>
+                              <td>{{ p.preco }}</td>
+                            </tr>
+                          </tbody>
+                          
+
+                        </table>
                       </div>
                     </div>
                    
