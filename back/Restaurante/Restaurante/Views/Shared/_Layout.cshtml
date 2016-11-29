@@ -17,6 +17,8 @@
     <!-- Custom Theme Style -->
     <link href="/Content/css/custom.min.css" rel="stylesheet">
     <link href="/Content/css/ajustes.css" rel="stylesheet">
+    
+    @RenderSection("Stylesheets", false)
 </head>
 <body class="nav-md">
     <div class="container body">
@@ -62,7 +64,7 @@
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <img src="images/img.jpg" alt="">John Doe
-                                    <span class=" fa fa-angle-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="javascript:;"> Profile</a></li>
@@ -113,5 +115,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="/Content/custom.min.js"></script>
+    
+    @RenderSection("Scripts", false)
 </body>
 </html>

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Restaurante.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Potatotech.GestaoRestaurante.Web.Global" Language="C#" %>

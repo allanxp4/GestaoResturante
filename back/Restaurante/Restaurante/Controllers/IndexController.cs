@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Restaurante.Controllers
+namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
     public class IndexController : Controller
     {

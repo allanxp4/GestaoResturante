@@ -1,12 +1,12 @@
-﻿using Restaurante.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
+using Potatotech.GestaoRestaurante.Web.Models;
 
-namespace Restaurante.Repositories
+namespace Potatotech.GestaoRestaurante.Web.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

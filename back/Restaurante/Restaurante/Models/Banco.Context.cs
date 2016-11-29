@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Restaurante.Models
+namespace Potatotech.GestaoRestaurante.Web.Models
 {
     using System;
     using System.Data.Entity;

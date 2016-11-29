@@ -1,11 +1,11 @@
-﻿using Restaurante.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Potatotech.GestaoRestaurante.Web.Models;
 
-namespace Restaurante.ViewModels
+namespace Potatotech.GestaoRestaurante.Web.ViewModels
 {
     public class UsuarioViewModel
     {

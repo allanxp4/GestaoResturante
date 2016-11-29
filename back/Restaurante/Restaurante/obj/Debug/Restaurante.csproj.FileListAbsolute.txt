@@ -43,3 +43,8 @@ C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\Syste
 C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\System.Web.Http.WebHost.xml
 C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\obj\Debug\Restaurante.dll
 C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\obj\Debug\Restaurante.pdb
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\Antlr3.Runtime.dll
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\System.Web.Optimization.dll
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\WebGrease.dll
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\Antlr3.Runtime.pdb
+C:\Users\Allan\Documents\GestaoResturante\back\Restaurante\Restaurante\bin\System.Web.Optimization.xml
