@@ -3,27 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Potatotech.GestaoRestaurante.Web.Models;
+using Potatotech.GestaoRestaurante.Web.Repositories;
 
-namespace Potatotech.GestaoRestaurante.Web.NewFolder1
+namespace Potatotech.GestaoRestaurante.Web
 {
     public class UnitOfWork : IDisposable
     {
         private RestauranteContext _context = new RestauranteContext();
 
-        /*
-               private IGenericRepository<?> _ambienteRepository;
+        private IGenericRepository<TipoProduto> _tipoProdutoRepository;
+        private IGenericRepository<Produto> _produtoRepository;
+                
+        public IGenericRepository<Produto> ProdutoRepository
+        {
+            get
+            {
+                if(_produtoRepository == null)
+                {
+                    _produtoRepository = new GenericRepository<Produto>(_context);
+                }
+                return _produtoRepository;
+            }
+          
+        }
 
-              public IGenericRepository<?> AmbienteRepository
-               {
-                   get
-                   {
-                       if (_ambienteRepository == null)
-                       {
-                           _ambienteRepository = new GenericRepository<?>(_context);
-                       }
-                       return _ambienteRepository;
-                   }
-               } */
+        public IGenericRepository<TipoProduto> TipoProdutoRepository
+        {
+            get
+            {
+                if (_tipoProdutoRepository == null)
+                {
+                    _tipoProdutoRepository = new GenericRepository<TipoProduto>(_context);
+                }
+                return _tipoProdutoRepository;
+            }
+        }
 
 
 

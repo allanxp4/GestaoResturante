@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="RestauranteBD.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\PC\DESKTOP\GITC#\BACK\RESTAURANTE\RESTAURANTEBD\OBJ\DEBUG\RESTAURANTEBD.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\DANILO\DOCUMENTS\FABRICA DE DESENVOLVIMENTO\GESTAORESTAURANTE\BACK\RESTAURANTE\RESTAURANTEBD\OBJ\DEBUG\RESTAURANTEBD.DLL" />
 			<Metadata Name="AssemblyName" Value="RestauranteBD" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\PC\Desktop\gitC#\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Danilo\Documents\Fabrica de Desenvolvimento\GestaoRestaurante\back\Restaurante\RestauranteBD\obj\Debug\RestauranteBD.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

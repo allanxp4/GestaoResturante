@@ -4363,6 +4363,7 @@
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Content\select.min.css.map" />
+    <Content Include="App_Code\Helper.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -4412,6 +4413,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GarcomController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\TipoProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4494,6 +4497,10 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Garcom\Pedido.cshtml" />
     <Content Include="Scripts\select.min.js.map" />
+    <Content Include="Views\TipoProduto\Cadastrar.cshtml" />
+    <Content Include="Views\TipoProduto\Listar.cshtml" />
+    <Content Include="Views\Produto\Cadastrar.cshtml" />
+    <Content Include="Views\Produto\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

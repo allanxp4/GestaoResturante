@@ -1,0 +1,24 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.TipoProdutoViewModel
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+<div class="x_title">
+    <h2>Cadastrar Tipo de Produto</h2>
+
+    <div class="clearfix"></div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.Nome)
+        @Html.TextBoxFor(p => p.Nome, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Helper.Submit("Cadastrar Tipo de Produto", "btn btn-primary btn-block")
+    </div>
+}
+
+
+

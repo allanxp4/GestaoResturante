@@ -8,6 +8,7 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
 {
     public class TipoProdutoViewModel
     {
+        public ICollection<TipoProduto> TiposProduto { get; set; }
         public int Id { get; set; }
         public string Nome { get; set; }
 
