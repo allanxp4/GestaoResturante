@@ -4494,6 +4494,7 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Garcom\Pedido.cshtml" />
     <Content Include="Scripts\select.min.js.map" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
