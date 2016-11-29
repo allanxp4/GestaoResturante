@@ -3,20 +3,22 @@
     ViewBag.Title = "Listar";
 }
 
-<div class="x_title">
-    <h2>Lista de Tipo de Produto</h2>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Lista de Tipo de Produto</h2>
 
-    <div class="clearfix"></div>
-</div>
+        <div class="clearfix"></div>
+    </div>
+<div class="x_content">
 
-<table class="table">
-    <thead>
+    <table class="table">
+        <thead>
         <tr>
             <th>Cod.</th>
             <th>Nome</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         @foreach (var tp in Model.TiposProduto)
         {
             <tr>
@@ -24,6 +26,8 @@
                 <td>@tp.Nome</td>
             </tr>
         }
-    </tbody>
+        </tbody>
 
-</table>
+    </table>
+</div>
+</div>

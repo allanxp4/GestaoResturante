@@ -4497,14 +4497,11 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Garcom\Pedido.cshtml" />
     <Content Include="Scripts\select.min.js.map" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-=======
     <Content Include="Views\TipoProduto\Cadastrar.cshtml" />
     <Content Include="Views\TipoProduto\Listar.cshtml" />
     <Content Include="Views\Produto\Cadastrar.cshtml" />
     <Content Include="Views\Produto\Listar.cshtml" />
->>>>>>> dc77b86464507994546262031ceec2fe173c4514
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
