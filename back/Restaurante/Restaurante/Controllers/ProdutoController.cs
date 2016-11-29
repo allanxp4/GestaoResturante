@@ -42,6 +42,20 @@ namespace Restaurante.Controllers
 
             return View(p);
         }
+
+        [HttpGet]
+        public ActionResult ListaProduto()
+        {
+            var lista = _unit.ProdutoRepository.Listar().Select(p => new {
+                id = p.Id,
+                nome = p.Nome,
+                valor = p.Valor,
+                imposto = p.Imposto,
+                TipoProduto = p.TipoProduto.Nome
+            });
+
+            return Json(lista, JsonRequestBehavior.AllowGet);
+        }
         #endregion
 
         #region POST
@@ -66,6 +80,7 @@ namespace Restaurante.Controllers
 
         #endregion
 
+      
 
         private SelectList ListarTipoProduto()
         {
