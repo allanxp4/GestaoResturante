@@ -1,0 +1,29 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.TipoProdutoViewModel
+@{
+    ViewBag.Title = "Listar";
+}
+
+<div class="x_title">
+    <h2>Lista de Tipo de Produto</h2>
+
+    <div class="clearfix"></div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cod.</th>
+            <th>Nome</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tp in Model.TiposProduto)
+        {
+            <tr>
+                <td>@tp.Id</td>
+                <td>@tp.Nome</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
