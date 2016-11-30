@@ -6,34 +6,90 @@
 
 <div class="x_panel">
     <div class="x_title">
-        <h2>Cadastrar Produto</h2>
-
-        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Cadastrar Produto</h2>
+            </div>
+            <div class="col-md-3">
+                <button id="btnCadastrar">
+                    <i class="fa fa-plus"></i> Cadastrar novo produto
+                </button>
+                <div id="modalCadastrar" class="modal">
+                    <div class="modal-content">
+                        <span class="close">x</span>
+                        @using (Html.BeginForm("Cadastrar", "Produto"))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(p => p.TipoId)
+                                @Html.DropDownListFor(p => p.TipoId, Model.ListaTipoProduto, "Selecione", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.TipoId)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(p => p.Nome)
+                                @Html.TextBoxFor(p => p.Nome, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Nome)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(p => p.Valor)
+                                @Html.TextBoxFor(p => p.Valor, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Valor)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(p => p.Imposto)
+                                @Html.TextBoxFor(p => p.Imposto, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Imposto)
+                            </div>
+                            <div class="form-group">
+                                @Helper.Submit("Cadastrar Novo Produto", "btn btn-primary btn-block")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="clearfix"></div>-->
     </div>
 
-<div class="x_content">
-    <table class="table"> 
-        <thead>
-        <tr>
-            <th>Cod.</th>
-            <th>Nome</th>
-            <th>Valor</th>
-            <th>Imposto</th>
-            <th>Tipo do Produto</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var p in Model.Produtos)
-        {
-            <tr>
-                <th>@p.Id</th>
-                <th>@p.Nome</th>
-                <th>@p.Valor</th>
-                <th>@p.Imposto</th>
-                <th>@p.TipoProduto.Nome</th>
-            </tr>
+    <div class="x_content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Cod.</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Imposto</th>
+                    <th>Tipo do Produto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.Produtos)
+                {
+                    <tr>
+                        <th>@p.Id</th>
+                        <th>@p.Nome</th>
+                        <th>@p.Valor</th>
+                        <th>@p.Imposto</th>
+                        <th>@p.TipoProduto.Nome</th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById('modalCadastrar');
+    var btn = document.getElementById("btnCadastrar");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-        </tbody>
-    </table>
-</div>
-</div>
+    }
+</script>
