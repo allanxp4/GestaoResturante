@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,6 +18,8 @@
     <!-- Custom Theme Style -->
     <link href="/Content/css/custom.min.css" rel="stylesheet">
     <link href="/Content/css/ajustes.css" rel="stylesheet">
+    
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
     
     @RenderSection("Stylesheets", false)
 </head>
@@ -87,6 +90,9 @@
     <!-- Custom Theme Scripts -->
     <script src="/Content/custom.min.js"></script>
     
-    @RenderSection("Scripts", false)
+    @Scripts.Render("/Scripts/toastr.min.js");
+
+    
+@RenderSection("Scripts", false)
 </body>
 </html>

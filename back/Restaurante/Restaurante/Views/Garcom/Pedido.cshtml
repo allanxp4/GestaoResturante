@@ -4,104 +4,128 @@
     ViewBag.Title = "Pedido";
 }
 
-<div class="row" ng-app="restaurante.garcom" ng-controller="pedido-controller">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Novo Pedido</h2>
+<div ng-app="restaurante.garcom" ng-controller="pedido-controller">
+    <div class="row" >
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Novo Pedido</h2>
 
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <br>
-                <form id="demo-form2" class="form-horizontal form-label-left">
-                    <div class="row">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br>
+                    <form name="form" id="demo-form2" class="form-horizontal form-label-left" novalidate>
+                        <div class="row">
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-sm-6 col-xs-4">
-                                <input type="text" id="mesa" ng-model="pedido.mesa" placeholder="Mesa" class="form-control">
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 pull-right normalize">
-                                <div class="input-group">
-                                    <span class="input-group-btn">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-4">
+                                    <input type="number" min="1" max="999" id="mesa" ng-model="pedido.mesa" placeholder="Mesa" class="form-control" required>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 pull-right normalize">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
                                         <button ng-click="qtd = qtd - 1" class="btn btn-primary">-</button>
                                     </span>
-                                    <input type="number" ng-model="qtd" class="form-control">
-                                    <span class="input-group-btn">
+                                        <input type="number" ng-model="qtd" class="form-control">
+                                        <span class="input-group-btn">
                                         <button ng-click="qtd = qtd + 1" class="btn btn-primary">+</button>
                                     </span>
 
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col sm-12">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col sm-12">
 
-                                <ui-select class="dynamic-select" ng-model="select2.ProdutoAtual">
-                                    <ui-select-match>
-                                        <span ng-bind="$select.selected.descricao"></span>
-                                    </ui-select-match>
-                                    <ui-select-choices repeat="produto in (produtos | filter: $select.search) track by produto.id">
-                                        <span ng-bind="produto.descricao"></span>
-                                    </ui-select-choices>
-                                </ui-select>
+                                    <ui-select class="dynamic-select" ng-model="select2.ProdutoAtual">
+                                        <ui-select-match>
+                                            <span ng-bind="$select.selected.descricao"></span>
+                                        </ui-select-match>
+                                        <ui-select-choices repeat="produto in (produtos | filter: $select.search) track by produto.id">
+                                            <span ng-bind="produto.descricao"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+
                             </div>
-
                         </div>
-                    </div>
 
 
-                    <div class="row">
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <button class="btn btn-primary btn-block" ng-click="adicionarProduto(produtoAtual)">Adicionar Produto</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-block" ng-click="adicionarProduto(produtoAtual)">Adicionar Produto</button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <table class="table">
-                                <thead>
+                                <table class="table table-hover">
+                                    <thead>
                                     <tr>
                                         <th>Cod</th>
                                         <th>Descrição</th>
                                         <th>Qtd</th>
                                         <th>R$</th>
                                     </tr>
-                                </thead>
-                                <tbody ng-repeat="p in pedido.produtos track by $index">
-                                    <tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                    <tr ng-repeat="p in pedido.produtos track by $index" ng-click="abrirOpcoes(p)">
                                         <td>{{ p.id }}</td>
                                         <td>{{ p.descricao }}</td>
                                         <td>{{ p.quantidade }}</td>
                                         <td>{{ p.preco }}</td>
                                     </tr>
-                                </tbody>
+                                    </tbody>
 
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <button type="submit" class="btn btn-primary">Cancel</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-danger">Cancelar</button>
+                                <button type="submit" ng-click="enviarPedido()" class="btn btn-success" ng-disabled="!form.$valid || pedido.produtos.length == 0">Enviar</button>
+                            </div>
                         </div>
-                    </div>
 
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-opcoes">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Opções</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="observacoes">Observações</label>
+                    <textarea id="observacoes" ng-model="modalOpcoes.observacoes"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="apagarProduto()">Apagar</button>
+                    <button type="button" class="btn btn-default" ng-click="fecharModal()">Cancelar</button>
+                    <button type="button" class="btn btn-primary" ng-click="salvarObservacoes()">Salvar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
 </div>
 
 @section Stylesheets
@@ -113,6 +137,7 @@
 {
     @Scripts.Render("/Scripts/angular.min.js")
     @Scripts.Render("/Scripts/angular-sanitize.min.js")
+    @Scripts.Render("/Scripts/angular-resource.min.js")
     @Scripts.Render("/Scripts/select.min.js")
     @Scripts.Render("/Scripts/AngularApp/pedido.js")
 }
