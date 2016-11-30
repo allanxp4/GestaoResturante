@@ -56,7 +56,7 @@ namespace Potatotech.GestaoRestaurante.Controllers
             _unit.TipoProdutoRepository.Cadastrar(tipoProduto);
             _unit.Salvar();
 
-            return RedirectToAction("Cadastrar");
+            return RedirectToAction("Listar");
         }
 
         #endregion

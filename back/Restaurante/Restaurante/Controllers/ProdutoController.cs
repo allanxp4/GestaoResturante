@@ -39,6 +39,7 @@ namespace Potatotech.GestaoRestaurante.Controllers
 
             ProdutoViewModel p = new ProdutoViewModel()
             {
+                ListaTipoProduto = ListarTipoProduto(),
                 Produtos = lista
             };
 
@@ -77,7 +78,7 @@ namespace Potatotech.GestaoRestaurante.Controllers
             _unit.ProdutoRepository.Cadastrar(produto);
             _unit.Salvar();
 
-            return RedirectToAction("Cadastrar");
+            return RedirectToAction("Listar");
         }
 
         #endregion

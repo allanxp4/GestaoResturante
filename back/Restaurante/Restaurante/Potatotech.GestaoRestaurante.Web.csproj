@@ -4433,9 +4433,7 @@
     <Content Include="Views\Garcom\Pedido.cshtml" />
     <Content Include="Scripts\select.min.js.map" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
-    <Content Include="Views\TipoProduto\Cadastrar.cshtml" />
     <Content Include="Views\TipoProduto\Listar.cshtml" />
-    <Content Include="Views\Produto\Cadastrar.cshtml" />
     <Content Include="Views\Produto\Listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -15,8 +15,8 @@
                     <li>
                         <a><i class="fa fa-home"></i>Garçom<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/Garcom/Pedido">Novo Pedido</a></li>
-                            <li><a href="/Garcom/ListaPedidos">Histórico de Pedidos</a></li>
+                            <li>@Html.ActionLink("Novo Pedido", "Pedido", "Garcom")</li>
+                            <li>@Html.ActionLink("Histórico de Pedidos", "ListaPedidos", "Garcom")</li>
                         </ul>
                     </li>
                 
@@ -24,10 +24,8 @@
                     <li>
                         <a><i class="fa fa-home"></i>Produtos<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/Produto/Cadastrar">Cadastrar</a></li>
-                            <li><a href="/Produto/Listar">Listar</a></li>
-                            <li><a href="/TipoProduto/Cadastrar">Cadastrar Tipos</a></li>
-                            <li><a href="/TipoProduto/Listar">Listar Tipos</a></li>
+                            <li>@Html.ActionLink("Produtos", "Listar", "Produto")</li>
+                            <li>@Html.ActionLink("Tipos de produtos", "Listar", "TipoProduto")</li>
                         </ul>
                     </li>
                 </ul>
