@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Potatotech.GestaoRestaurante.Web.Controllers
+namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 {
     public class GarcomController : Controller
     {

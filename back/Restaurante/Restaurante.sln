@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurante", "Restaurante\Restaurante.csproj", "{04BBFB57-578E-4D40-B56F-77874B6B5019}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Potatotech.GestaoRestaurante.Web", "Restaurante\Potatotech.GestaoRestaurante.Web.csproj", "{04BBFB57-578E-4D40-B56F-77874B6B5019}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RestauranteBD", "RestauranteBD\RestauranteBD.sqlproj", "{B55AE664-587F-43B9-88D2-7EE2251487AB}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Potatotech.GestaoRestaurante.BD", "RestauranteBD\Potatotech.GestaoRestaurante.BD.sqlproj", "{B55AE664-587F-43B9-88D2-7EE2251487AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Potatotech.GestaoRestaurante.Dominio", "Potatotech.GestaoRestaurante.Dominio\Potatotech.GestaoRestaurante.Dominio.csproj", "{4AF17A22-DD14-4A89-BD93-8399F8AA4DC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Potatotech.GestaoRestaurante.Persistencia", "Potatotech.GestaoRestaurante.Persistencia\Potatotech.GestaoRestaurante.Persistencia.csproj", "{E8FB68A1-CB34-4520-A26B-18B413617F4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Potatotech.GestaoRestaurante.Service", "Potatotech.GestaoRestaurante.Service\Potatotech.GestaoRestaurante.Service.csproj", "{EFF392BC-E97E-4456-B57E-6035DC2E4A51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,18 @@ Global
 		{B55AE664-587F-43B9-88D2-7EE2251487AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B55AE664-587F-43B9-88D2-7EE2251487AB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B55AE664-587F-43B9-88D2-7EE2251487AB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4AF17A22-DD14-4A89-BD93-8399F8AA4DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF17A22-DD14-4A89-BD93-8399F8AA4DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF17A22-DD14-4A89-BD93-8399F8AA4DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF17A22-DD14-4A89-BD93-8399F8AA4DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FB68A1-CB34-4520-A26B-18B413617F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FB68A1-CB34-4520-A26B-18B413617F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FB68A1-CB34-4520-A26B-18B413617F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FB68A1-CB34-4520-A26B-18B413617F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFF392BC-E97E-4456-B57E-6035DC2E4A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF392BC-E97E-4456-B57E-6035DC2E4A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF392BC-E97E-4456-B57E-6035DC2E4A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF392BC-E97E-4456-B57E-6035DC2E4A51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

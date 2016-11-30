@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Potatotech.GestaoRestaurante.Web.Models;
-using Potatotech.GestaoRestaurante.Web.Repositories;
+using Potatotech.GestaoRestaurante.Dominio.Models;
+using Potatotech.GestaoRestaurante.Persistencia.Repositories;
 
-namespace Potatotech.GestaoRestaurante.Web
+namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
 {
     public class UnitOfWork : IDisposable
     {

@@ -7,32 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Potatotech.GestaoRestaurante.Web.Models
+namespace Potatotech.GestaoRestaurante.Dominio.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Conta
+    public partial class Mesa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Conta()
+        public Mesa()
         {
-            this.Pagamento = new HashSet<Pagamento>();
-            this.Pedido = new HashSet<Pedido>();
+            this.Conta = new HashSet<Conta>();
         }
     
         public int Id { get; set; }
-        public int MesaId { get; set; }
-        public decimal Desconto { get; set; }
-        public bool Pago { get; set; }
-        public Nullable<System.DateTime> DataHoraPagamento { get; set; }
-        public int UsuarioId { get; set; }
+        public int Capacidade { get; set; }
+        public bool Ocupada { get; set; }
+        public int AmbienteId { get; set; }
     
-        public virtual Mesa Mesa { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Ambiente Ambiente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pagamento> Pagamento { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedido> Pedido { get; set; }
+        public virtual ICollection<Conta> Conta { get; set; }
     }
 }

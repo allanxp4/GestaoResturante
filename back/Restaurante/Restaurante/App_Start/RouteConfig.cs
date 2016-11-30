@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Potatotech.GestaoRestaurante.Web
+namespace Potatotech.GestaoRestaurante.Repositories
 {
     public class RouteConfig
     {

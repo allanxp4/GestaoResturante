@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Potatotech.GestaoRestaurante.Web.Repositories
+namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
 {
     public interface IGenericRepository<T>
     {

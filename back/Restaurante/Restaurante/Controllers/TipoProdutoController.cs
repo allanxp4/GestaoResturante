@@ -1,20 +1,22 @@
-﻿using Potatotech.GestaoRestaurante.Web;
-using Potatotech.GestaoRestaurante.Web.Models;
+﻿using Potatotech.GestaoRestaurante.Dominio.Models;
 using Potatotech.GestaoRestaurante.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 
-namespace Restaurante.Controllers
+namespace Potatotech.GestaoRestaurante.Controllers
 {
     public class TipoProdutoController : Controller
     {
 
         #region PRIVATE
 
-        private UnitOfWork _unit = new UnitOfWork();
+        private 
+            
+            UnitOfWork _unit = new UnitOfWork();
 
         #endregion
 

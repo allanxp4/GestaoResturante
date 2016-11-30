@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Potatotech.GestaoRestaurante.Web.Models;
 using System.Web.Mvc;
+using Potatotech.GestaoRestaurante.Dominio.Models;
 
 namespace Potatotech.GestaoRestaurante.Web.ViewModels
 {

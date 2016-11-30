@@ -8,7 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 
-namespace Potatotech.GestaoRestaurante.Web
+namespace Potatotech.GestaoRestaurante.Repositories
 {
     public class Global : HttpApplication
     {

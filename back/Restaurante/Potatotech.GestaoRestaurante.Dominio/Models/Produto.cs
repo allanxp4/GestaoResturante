@@ -7,23 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Potatotech.GestaoRestaurante.Web.Models
+namespace Potatotech.GestaoRestaurante.Dominio.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TipoPagamento
+    public partial class Produto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoPagamento()
+        public Produto()
         {
-            this.Pagamento = new HashSet<Pagamento>();
+            this.Pedido = new HashSet<Pedido>();
         }
     
         public int Id { get; set; }
         public string Nome { get; set; }
+        public decimal Valor { get; set; }
+        public Nullable<decimal> Imposto { get; set; }
+        public int TipoId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pagamento> Pagamento { get; set; }
+        public virtual ICollection<Pedido> Pedido { get; set; }
+        public virtual TipoProduto TipoProduto { get; set; }
     }
 }

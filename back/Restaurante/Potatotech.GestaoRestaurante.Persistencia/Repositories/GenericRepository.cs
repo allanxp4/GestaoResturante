@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
-using Potatotech.GestaoRestaurante.Web.Models;
+using Potatotech.GestaoRestaurante.Dominio.Models;
 
-namespace Potatotech.GestaoRestaurante.Web.Repositories
+namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

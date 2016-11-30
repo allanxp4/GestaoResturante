@@ -3506,16 +3506,6 @@
     <Content Include="Content\vendors\validator\validator.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Banco.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Banco.edmx</DependentUpon>
-      <LastGenOutput>Banco.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Banco.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Banco.edmx</DependentUpon>
-      <LastGenOutput>Banco.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -4418,54 +4408,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ambiente.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Banco.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Banco.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Banco.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Conta.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Mesa.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pagamento.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Pedido.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Produto.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TipoPagamento.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TipoProduto.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TipoUsuario.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Usuario.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\IGenericRepository.cs" />
-    <Compile Include="UnitsOfWork\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AmbienteViewModel.cs" />
     <Compile Include="ViewModels\BancoViewModel.cs" />
@@ -4482,13 +4424,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\Banco.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Banco.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Banco.edmx.diagram">
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -4515,6 +4450,20 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Dominio\Potatotech.GestaoRestaurante.Dominio.csproj">
+      <Project>{4af17a22-dd14-4a89-bd93-8399f8aa4dc5}</Project>
+      <Name>Potatotech.GestaoRestaurante.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Persistencia\Potatotech.GestaoRestaurante.Persistencia.csproj">
+      <Project>{e8fb68a1-cb34-4520-a26b-18b413617f4f}</Project>
+      <Name>Potatotech.GestaoRestaurante.Persistencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Service\Potatotech.GestaoRestaurante.Service.csproj">
+      <Project>{eff392bc-e97e-4456-b57e-6035dc2e4a51}</Project>
+      <Name>Potatotech.GestaoRestaurante.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,23 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Potatotech.GestaoRestaurante.Web.Models
+namespace Potatotech.GestaoRestaurante.Dominio.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Pedido
+    public partial class Pagamento
     {
         public int Id { get; set; }
-        public bool Viagem { get; set; }
-        public int ProdutoId { get; set; }
-        public string Observacoes { get; set; }
+        public decimal Valor { get; set; }
+        public int TipoId { get; set; }
         public int ContaId { get; set; }
-        public System.DateTime DataHora { get; set; }
-        public int UsuarioId { get; set; }
     
         public virtual Conta Conta { get; set; }
-        public virtual Produto Produto { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual TipoPagamento TipoPagamento { get; set; }
     }
 }

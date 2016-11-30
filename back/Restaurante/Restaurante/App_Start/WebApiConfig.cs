@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Potatotech.GestaoRestaurante.Web
+namespace Potatotech.GestaoRestaurante.Repositories
 {
     public static class WebApiConfig
     {

@@ -1,13 +1,15 @@
-﻿using Potatotech.GestaoRestaurante.Web;
-using Potatotech.GestaoRestaurante.Web.Models;
-using Potatotech.GestaoRestaurante.Web.ViewModels;
+﻿using Potatotech.GestaoRestaurante.Repositories;
+using Potatotech.GestaoRestaurante.Dominio.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
+using Potatotech.GestaoRestaurante.Web.ViewModels;
 
-namespace Restaurante.Controllers
+namespace Potatotech.GestaoRestaurante.Controllers
 {
     public class ProdutoController : Controller
     {
