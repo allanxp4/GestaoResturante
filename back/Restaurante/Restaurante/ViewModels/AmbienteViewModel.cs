@@ -10,7 +10,7 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
     public class AmbienteViewModel
     {
         public int Id { get; set; }
-
+        
         [StringLength(50)]
         [Required(ErrorMessage = "Por favor digite um nome", AllowEmptyStrings = true)]
         public string Nome { get; set; }

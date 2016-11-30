@@ -1,0 +1,57 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.RestauranteViewModel
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Perfil do restaurante</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(r => r.qtdAmbientes)
+                    @Html.TextBoxFor(r => r.qtdAmbientes, new { @class = "form-control", @size = "5" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group" id="amb" style="display:none">
+                    @Html.LabelFor(r => r.ambiente.Nome)
+                    @Html.TextBoxFor(r => r.ambiente.Nome, new { @class = "form-control", @size = "5" })
+                    @Html.LabelFor(r => r.qtdMesas)
+                    @Html.TextBoxFor(r => r.qtdMesas, new { @class = "form-control", @size = "5" })
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="form-group">
+            @Html.LabelFor(r => r.gerente)
+            @Html.TextBoxFor(r => r.gerente, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $("document").ready(function () {
+            $("#qtdAmbientes").keyup(function () {
+                var qdtAmb = $(this).val();
+                while (qdtAmb > 0) {
+                    $("#amb").html({
+                        @Html.LabelFor(r => r.ambiente.Nome)
+                        @Html.TextBoxFor(r => r.ambiente.Nome, new { @class = "form-control", @size = "5" })
+                        @Html.LabelFor(r => r.qtdMesas)
+                        @Html.TextBoxFor(r => r.qtdMesas, new { @class = "form-control", @size = "5" })
+                    });
+                    qdtAmb = qdtAmb - 1;
+                }
+                $("#amb").show("slow");
+            });
+        });
+    </script>
+}

@@ -8,9 +8,29 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
     {
         private RestauranteContext _context = new RestauranteContext();
 
+        #region Private
+
         private IGenericRepository<TipoProduto> _tipoProdutoRepository;
         private IGenericRepository<Produto> _produtoRepository;
-                
+        private IGenericRepository<Ambiente> _ambienteRepository;
+
+        #endregion
+
+        #region Properties
+
+        public IGenericRepository<Ambiente> AmbienteRepository
+        {
+            get
+            {
+                if (_ambienteRepository == null)
+                {
+                    _ambienteRepository = new GenericRepository<Ambiente>(_context);
+                }
+                return _ambienteRepository;
+            }
+
+        }
+
         public IGenericRepository<Produto> ProdutoRepository
         {
             get
@@ -36,7 +56,7 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
             }
         }
 
-
+        #endregion
 
         public void Salvar()
         {
