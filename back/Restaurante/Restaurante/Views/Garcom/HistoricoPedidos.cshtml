@@ -1,0 +1,35 @@
+﻿
+@model List<Potatotech.GestaoRestaurante.Web.ViewModels.PedidoViewModel>
+@{
+    ViewBag.Title = "HistoricoPedidos";
+}
+
+<div class="x_panel">
+    <div class="x_title">Histórico de pedidos</div>
+    <div class="clearfix"></div>
+    
+    <div class="x_content">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Cód</th>
+                <th>Data/Hora</th>
+                <th>Detalhes</th>
+                <th>Cancelar</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>p.Id</td>
+                    <td>p.DataHora</td>
+                    <td><a class="btn btn-primary">Detalhes</a></td>
+                    <td><a class="btn btn-danger">Cancelar</a></td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+</div>

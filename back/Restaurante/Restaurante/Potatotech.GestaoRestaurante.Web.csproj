@@ -4444,6 +4444,7 @@
     <Content Include="Views\TipoProduto\Listar.cshtml" />
     <Content Include="Views\Produto\Listar.cshtml" />
     <Content Include="Views\Restaurante\Cadastrar.cshtml" />
+    <Content Include="Views\Garcom\HistoricoPedidos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,6 +13,7 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
         private IGenericRepository<TipoProduto> _tipoProdutoRepository;
         private IGenericRepository<Produto> _produtoRepository;
         private IGenericRepository<Ambiente> _ambienteRepository;
+        private IGenericRepository<Pedido> _pedidoRepository;
 
         #endregion
 
@@ -57,6 +58,18 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
         }
 
         #endregion
+
+        public IGenericRepository<Pedido> PedidoRepository
+        {
+            get
+            {
+                if (_pedidoRepository == null)
+                {
+                    _pedidoRepository = new GenericRepository<Pedido>(_context);
+                }
+                return _pedidoRepository;
+            }
+        }
 
         public void Salvar()
         {

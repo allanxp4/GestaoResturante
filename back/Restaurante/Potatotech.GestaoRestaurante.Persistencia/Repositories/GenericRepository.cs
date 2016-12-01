@@ -49,5 +49,10 @@ namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
             var entity = BuscarPorId(id);
             _dbSet.Remove(entity);
         }
+
+        public virtual ICollection<T> Paginar(int tamanho, int pagina)
+        {
+            return _dbSet.Skip(tamanho*pagina).Take(tamanho).ToList();
+        }
     }
 }
