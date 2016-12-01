@@ -4449,6 +4449,12 @@
     <Content Include="Views\Produto\Listar.cshtml" />
     <Content Include="Views\Restaurante\Cadastrar.cshtml" />
     <Content Include="Views\Garcom\HistoricoPedidos.cshtml" />
+    <Content Include="Views\TipoProduto\_cadastrar.cshtml" />
+    <Content Include="Views\TipoProduto\_editar.cshtml" />
+    <Content Include="Views\TipoProduto\_deletar.cshtml" />
+    <Content Include="Views\Produto\_cadastrar.cshtml" />
+    <Content Include="Views\Produto\_editar.cshtml" />
+    <Content Include="Views\Produto\_deletar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4472,10 +4478,6 @@
     <ProjectReference Include="..\Potatotech.GestaoRestaurante.Persistencia\Potatotech.GestaoRestaurante.Persistencia.csproj">
       <Project>{e8fb68a1-cb34-4520-a26b-18b413617f4f}</Project>
       <Name>Potatotech.GestaoRestaurante.Persistencia</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Service\Potatotech.GestaoRestaurante.Service.csproj">
-      <Project>{eff392bc-e97e-4456-b57e-6035dc2e4a51}</Project>
-      <Name>Potatotech.GestaoRestaurante.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

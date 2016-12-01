@@ -1,0 +1,25 @@
+﻿@model  Potatotech.GestaoRestaurante.Web.ViewModels.TipoProdutoViewModel
+
+<div class="modal fade" id="Cadastrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cadastrar Tipo de Produto</h4>
+            </div>
+            @using (Html.BeginForm("Cadastrar", "TipoProduto"))
+            {
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.LabelFor(t => t.Nome)
+                        @Html.TextBoxFor(t => t.Nome, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

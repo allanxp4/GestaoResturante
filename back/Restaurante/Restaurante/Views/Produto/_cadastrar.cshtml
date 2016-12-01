@@ -1,0 +1,42 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.ProdutoViewModel
+
+<div class="modal fade" id="Cadastrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Cadastrar Produto</h4>
+            </div>
+            @using (Html.BeginForm("Cadastrar", "Produto"))
+            {
+                <div class="modal-body">
+                    <div class="form-group">
+                        @Html.LabelFor(p => p.TipoId)
+                        @Html.DropDownListFor(p => p.TipoId, Model.ListaTipoProduto, "Selecione", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.TipoId)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(p => p.Nome)
+                        @Html.TextBoxFor(p => p.Nome, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.Nome)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(p => p.Valor)
+                        @Html.TextBoxFor(p => p.Valor, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.Valor)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(p => p.Imposto)
+                        @Html.TextBoxFor(p => p.Imposto, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(p => p.Imposto)
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar Novo Produto</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

@@ -91,5 +91,15 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
             return new SelectList(lista, "Id", "Nome");
         }
+
+        #region DISPOSE
+
+        protected override void Dispose(bool disposing)
+        {
+            _unit.Dispose();
+            base.Dispose(disposing);
+        }
+
+        #endregion
     }
 }

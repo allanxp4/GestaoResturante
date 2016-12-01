@@ -3,70 +3,20 @@
     ViewBag.Title = "Listar";
 }
 
-@section Stylesheets{
-    <style type="text/css">
-        .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgb(0,0,0);
-                background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-                background-color: #fefefe;
-                margin: 10% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 50%;
-        }
-        .close {
-                color: #2A3F54;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-        }
-
-            .close:hover,
-            .close:focus {
-                color: #2A3F54;
-                text-decoration: none;
-                cursor: pointer;
-            }
-    </style>
-}
 
 <div class="x_panel">
     <div class="x_title">
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-11">
                 <h2>Lista de Tipo de Produto</h2>
             </div>
-            <div class="col-md-3">
-                <button id="btnCadastrar" class="btn btn-info">
-                    <i class="fa fa-plus"></i> Cadastrar novo tipo de produto
+            <div class="col-md-1">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Cadastrar">
+                    +
                 </button>
             </div>
-            <div id="modalCadastrar" class="modal">
-                <div class="modal-content">
-                    <span class="close">x</span>
-                    @using (Html.BeginForm("Cadastrar", "TipoProduto"))
-                    {
-                        <div class="form-group">
-                            @Html.LabelFor(p => p.Nome)
-                            @Html.TextBoxFor(p => p.Nome, new { @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Helper.Submit("Cadastrar Tipo de Produto", "btn btn-primary btn-block")
-                        </div>
-                    }
-                </div>
-            </div>
+
         </div>
 
     </div>
@@ -77,6 +27,7 @@
                 <tr>
                     <th>Cod.</th>
                     <th>Nome</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,30 +36,19 @@
                     <tr>
                         <td>@tp.Id</td>
                         <td>@tp.Nome</td>
+                        <td>
+                            <button onclick="idTipoProduto.value = @tp.Id" class="btn btn-primary" data-toggle="modal" data-target="#Editar">Editar</button>
+                            <button onclick="tipoProdutoId.value = @tp.Id " type="button" class="btn btn-danger editar" data-toggle="modal" data-target="#Deletar">Apagar</button>
+                        </td>
                     </tr>
                 }
             </tbody>
 
         </table>
+        @Html.Partial("_cadastrar")
+        @Html.Partial("_editar")
+        @Html.Partial("_deletar")
+
     </div>
 </div>
-
-@section Scripts{
-    <script>
-        var modal = document.getElementById('modalCadastrar');
-        var btn = document.getElementById("btnCadastrar");
-        var span = document.getElementsByClassName("close")[0];
-        btn.onclick = function () {
-            modal.style.display = "block";
-        }
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-}
 
