@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 using Potatotech.GestaoRestaurante.Web.ViewModels;
 
-namespace Potatotech.GestaoRestaurante.Controllers
+namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
     public class ProdutoController : Controller
     {

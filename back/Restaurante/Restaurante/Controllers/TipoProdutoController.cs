@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 
-namespace Potatotech.GestaoRestaurante.Controllers
+namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
     public class TipoProdutoController : Controller
     {
