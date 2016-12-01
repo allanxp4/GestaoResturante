@@ -1,6 +1,7 @@
 ﻿using Potatotech.GestaoRestaurante.Dominio.Models;
 using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,9 +19,31 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             return _unit.PedidoRepository.Listar();
         }
 
-        public Pedido Get(int id)
+        public ICollection<Pedido> Get(String nome_busca)
         {
-            return _unit.PedidoRepository.BuscarPorId(id);
+            //Todo:Pedido, não possui um nome, mudar campo de pesquisa
+            ICollection<Pedido> lista = new List<Pedido>();
+            var lista_aux = _unit.PedidoRepository.BuscarPor(a => a.Observacoes.Contains(nome_busca));
+            if (lista_aux.Count > 4)
+            {
+                foreach(var rel in lista_aux)
+                {
+                    while(lista_aux.Count < 4)
+                    {
+                        lista.Add(rel);
+                    }
+                }
+            }
+
+            else
+            {
+                foreach (var rel in lista_aux)
+                {
+                    lista.Add(rel);
+                }
+            }
+
+            return lista;
         }
 
         public IHttpActionResult Post(Pedido pedido)
