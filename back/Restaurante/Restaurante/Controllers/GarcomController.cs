@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Omu.ValueInjecter;
 using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 using Potatotech.GestaoRestaurante.Web.ViewModels;
 
@@ -25,8 +26,8 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 
         public ActionResult HistoricoPedidos()
         {
-            _unit.PedidoRepository.Listar();
-            
+            var pedidos = _unit.PedidoRepository.Listar();
+            var pedidosvm = Mapper.Map<>(pedidos);
             return View();
         }
     }
