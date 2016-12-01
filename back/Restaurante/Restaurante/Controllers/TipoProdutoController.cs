@@ -14,9 +14,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
         #region PRIVATE
 
-        private 
-            
-            UnitOfWork _unit = new UnitOfWork();
+        private UnitOfWork _unit = new UnitOfWork();
 
         #endregion
 
@@ -40,6 +38,21 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
             return View(tp);
         }
+
+        [HttpGet]
+        public ActionResult Editar(int idTipoControle)
+        {
+            var tipoProduto = _unit.TipoProdutoRepository.BuscarPorId(idTipoControle);
+
+            var viewModel = new TipoProdutoViewModel()
+            {
+                Id = tipoProduto.Id,
+                Nome = tipoProduto.Nome
+            };
+
+            return PartialView("_editar", viewModel);
+        }
+
         #endregion
 
         #region POST
@@ -57,6 +70,26 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             _unit.Salvar();
 
             return RedirectToAction("Listar");
+        }
+
+        [HttpPost]
+        public ActionResult Deletar(int tipoProdutoId)
+        {
+            _unit.TipoProdutoRepository.Remover(tipoProdutoId);
+            _unit.Salvar();
+
+            return RedirectToAction("Listar");
+        }
+
+
+        #endregion
+
+        #region DISPOSE
+
+        protected override void Dispose(bool disposing)
+        {
+            _unit.Dispose();
+            base.Dispose(disposing);
         }
 
         #endregion

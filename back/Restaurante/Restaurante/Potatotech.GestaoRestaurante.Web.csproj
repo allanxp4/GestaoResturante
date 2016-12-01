@@ -4450,6 +4450,12 @@
     <Content Include="Views\Produto\Listar.cshtml" />
     <Content Include="Views\Restaurante\Cadastrar.cshtml" />
     <Content Include="Views\Garcom\HistoricoPedidos.cshtml" />
+    <Content Include="Views\TipoProduto\_cadastrar.cshtml" />
+    <Content Include="Views\TipoProduto\_editar.cshtml" />
+    <Content Include="Views\TipoProduto\_deletar.cshtml" />
+    <Content Include="Views\Produto\_cadastrar.cshtml" />
+    <Content Include="Views\Produto\_editar.cshtml" />
+    <Content Include="Views\Produto\_deletar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
