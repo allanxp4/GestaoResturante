@@ -4473,10 +4473,6 @@
       <Project>{e8fb68a1-cb34-4520-a26b-18b413617f4f}</Project>
       <Name>Potatotech.GestaoRestaurante.Persistencia</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Service\Potatotech.GestaoRestaurante.Service.csproj">
-      <Project>{eff392bc-e97e-4456-b57e-6035dc2e4a51}</Project>
-      <Name>Potatotech.GestaoRestaurante.Service</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
