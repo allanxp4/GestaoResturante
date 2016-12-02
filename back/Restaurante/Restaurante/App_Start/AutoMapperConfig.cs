@@ -12,7 +12,7 @@ namespace Potatotech.GestaoRestaurante.Web.App_Start
     {
         public static void RegisterMappings()
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Pedido, PedidoViewModel>());
+            Mapper.CreateMap<Pedido, PedidoViewModel>().ReverseMap();
         }
     }
 }

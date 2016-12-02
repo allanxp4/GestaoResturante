@@ -5,6 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RestauranteBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
         <EntityType Name="Ambiente">
           <Key>
             <PropertyRef Name="Id" />
@@ -47,11 +53,21 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Viagem" Type="bit" Nullable="false" />
-          <Property Name="ProdutoId" Type="int" Nullable="false" />
-          <Property Name="Observacoes" Type="nvarchar" MaxLength="2000" Nullable="false" />
           <Property Name="ContaId" Type="int" Nullable="false" />
           <Property Name="DataHora" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="UsuarioId" Type="int" Nullable="false" />
+          <Property Name="Entregue" Type="bit" Nullable="false" />
+          <Property Name="Cancelado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PedidosDoProduto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProdutoId" Type="int" Nullable="false" />
+          <Property Name="PedidoId" Type="int" Nullable="false" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+          <Property Name="Observacoes" Type="nvarchar" MaxLength="2000" Nullable="false" />
         </EntityType>
         <EntityType Name="Produto">
           <Key>
@@ -60,7 +76,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Imposto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Imposto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TipoId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoPagamento">
@@ -166,18 +182,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pedido_ToProduto">
-          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
-          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Produto">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pedido">
-              <PropertyRef Name="ProdutoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Pedido_ToUsuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
@@ -187,6 +191,30 @@
             </Principal>
             <Dependent Role="Pedido">
               <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoProduto_ToPedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="PedidosDoProduto" Type="Self.PedidosDoProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PedidosDoProduto">
+              <PropertyRef Name="PedidoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoProduto_ToProduto">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="PedidosDoProduto" Type="Self.PedidosDoProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PedidosDoProduto">
+              <PropertyRef Name="ProdutoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -215,11 +243,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="RestauranteBDModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ambiente" EntityType="Self.Ambiente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Conta" EntityType="Self.Conta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mesa" EntityType="Self.Mesa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pagamento" EntityType="Self.Pagamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PedidosDoProduto" EntityType="Self.PedidosDoProduto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoPagamento" EntityType="Self.TipoPagamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoProduto" EntityType="Self.TipoProduto" Schema="dbo" store:Type="Tables" />
@@ -249,13 +279,17 @@
             <End Role="Conta" EntitySet="Conta" />
             <End Role="Pedido" EntitySet="Pedido" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pedido_ToProduto" Association="Self.FK_Pedido_ToProduto">
-            <End Role="Produto" EntitySet="Produto" />
-            <End Role="Pedido" EntitySet="Pedido" />
-          </AssociationSet>
           <AssociationSet Name="FK_Pedido_ToUsuario" Association="Self.FK_Pedido_ToUsuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoProduto_ToPedido" Association="Self.FK_PedidoProduto_ToPedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="PedidosDoProduto" EntitySet="PedidosDoProduto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoProduto_ToProduto" Association="Self.FK_PedidoProduto_ToProduto">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="PedidosDoProduto" EntitySet="PedidosDoProduto" />
           </AssociationSet>
           <AssociationSet Name="FK_Produto_ToTipo" Association="Self.FK_Produto_ToTipo">
             <End Role="TipoProduto" EntitySet="TipoProduto" />
@@ -321,14 +355,15 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Viagem" Type="Boolean" Nullable="false" />
-          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
           <Property Name="Observacoes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ContaId" Type="Int32" Nullable="false" />
           <Property Name="DataHora" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Conta" Relationship="Self.FK_Pedido_ToConta" FromRole="Pedido" ToRole="Conta" />
-          <NavigationProperty Name="Produto" Relationship="Self.FK_Pedido_ToProduto" FromRole="Pedido" ToRole="Produto" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Pedido_ToUsuario" FromRole="Pedido" ToRole="Usuario" />
+          <Property Name="Entregue" Type="Boolean" Nullable="false" />
+          <Property Name="Cancelado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PedidosDoProduto" Relationship="RestauranteBDModel.FK_PedidoProduto_ToPedido1" FromRole="Pedido" ToRole="PedidosDoProduto" />
         </EntityType>
         <EntityType Name="Produto">
           <Key>
@@ -337,10 +372,11 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Valor" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="Imposto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Imposto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TipoId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_ToProduto" FromRole="Produto" ToRole="Pedido" />
           <NavigationProperty Name="TipoProduto" Relationship="Self.FK_Produto_ToTipo" FromRole="Produto" ToRole="TipoProduto" />
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PedidosDoProduto" Relationship="RestauranteBDModel.FK_PedidoProduto_ToProduto1" FromRole="Produto" ToRole="PedidosDoProduto" />
         </EntityType>
         <EntityType Name="TipoPagamento">
           <Key>
@@ -451,18 +487,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pedido_ToProduto">
-          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
-          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Produto">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pedido">
-              <PropertyRef Name="ProdutoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Pedido_ToUsuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
@@ -534,10 +558,6 @@
             <End Role="TipoPagamento" EntitySet="TipoPagamento" />
             <End Role="Pagamento" EntitySet="Pagamento" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pedido_ToProduto" Association="Self.FK_Pedido_ToProduto">
-            <End Role="Produto" EntitySet="Produto" />
-            <End Role="Pedido" EntitySet="Pedido" />
-          </AssociationSet>
           <AssociationSet Name="FK_Pedido_ToUsuario" Association="Self.FK_Pedido_ToUsuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Pedido" EntitySet="Pedido" />
@@ -550,7 +570,59 @@
             <End Role="TipoUsuario" EntitySet="TipoUsuario" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
+          <EntitySet Name="C__RefactorLog" EntityType="RestauranteBDModel.C__RefactorLog" />
+          <EntitySet Name="PedidosDoProduto" EntityType="RestauranteBDModel.PedidosDoProduto" />
+          <AssociationSet Name="FK_PedidoProduto_ToPedido1" Association="RestauranteBDModel.FK_PedidoProduto_ToPedido1">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="PedidosDoProduto" EntitySet="PedidosDoProduto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PedidoProduto_ToProduto1" Association="RestauranteBDModel.FK_PedidoProduto_ToProduto1">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="PedidosDoProduto" EntitySet="PedidosDoProduto" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PedidosDoProduto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+          <Property Name="PedidoId" Type="Int32" Nullable="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <Property Name="Observacoes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pedido" Relationship="RestauranteBDModel.FK_PedidoProduto_ToPedido1" FromRole="PedidosDoProduto" ToRole="Pedido" />
+          <NavigationProperty Name="Produto" Relationship="RestauranteBDModel.FK_PedidoProduto_ToProduto1" FromRole="PedidosDoProduto" ToRole="Produto" />
+        </EntityType>
+        <Association Name="FK_PedidoProduto_ToPedido1">
+          <End Type="RestauranteBDModel.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="RestauranteBDModel.PedidosDoProduto" Role="PedidosDoProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PedidosDoProduto">
+              <PropertyRef Name="PedidoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PedidoProduto_ToProduto1">
+          <End Type="RestauranteBDModel.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="RestauranteBDModel.PedidosDoProduto" Role="PedidosDoProduto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PedidosDoProduto">
+              <PropertyRef Name="ProdutoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -600,10 +672,10 @@
           <EntitySetMapping Name="Pedido">
             <EntityTypeMapping TypeName="RestauranteBDModel.Pedido">
               <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="Cancelado" ColumnName="Cancelado" />
+                <ScalarProperty Name="Entregue" ColumnName="Entregue" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Viagem" ColumnName="Viagem" />
-                <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
-                <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
                 <ScalarProperty Name="ContaId" ColumnName="ContaId" />
                 <ScalarProperty Name="DataHora" ColumnName="DataHora" />
                 <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
@@ -653,6 +725,24 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Senha" ColumnName="Senha" />
                 <ScalarProperty Name="TipoId" ColumnName="TipoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="RestauranteBDModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PedidosDoProduto">
+            <EntityTypeMapping TypeName="RestauranteBDModel.PedidosDoProduto">
+              <MappingFragment StoreEntitySet="PedidosDoProduto">
+                <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
+                <ScalarProperty Name="ProdutoId" ColumnName="ProdutoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -16,7 +16,7 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
         // GET: Garcom
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Pedido");
         }
 
         public ActionResult Pedido()
@@ -24,11 +24,10 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
             return View();
         }
 
-        public ActionResult HistoricoPedidos()
-        {
+        public ActionResult HistoricoPedidos() { 
             var pedidos = _unit.PedidoRepository.Listar();
-            var pedidosvm = Mapper.Map<>(pedidos);
-            return View();
+            var pedidosvm = Mapper.Map<List<PedidoViewModel>>(pedidos);              
+            return View(pedidosvm);
         }
     }
 }

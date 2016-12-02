@@ -35,5 +35,7 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         public virtual DbSet<TipoProduto> TipoProduto { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
+        public virtual DbSet<PedidosDoProduto> PedidosDoProduto { get; set; }
     }
 }

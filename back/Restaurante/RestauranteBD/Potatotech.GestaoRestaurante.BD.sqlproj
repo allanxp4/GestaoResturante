@@ -69,6 +69,7 @@
     <Build Include="TipoProduto.sql" />
     <Build Include="TipoUsuario.sql" />
     <Build Include="Usuario.sql" />
+    <Build Include="PedidosDoProduto.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RestauranteBD.refactorlog" />

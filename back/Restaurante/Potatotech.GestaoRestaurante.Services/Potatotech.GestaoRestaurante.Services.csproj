@@ -136,6 +136,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Dominio\Potatotech.GestaoRestaurante.Dominio.csproj">
+      <Project>{4af17a22-dd14-4a89-bd93-8399f8aa4dc5}</Project>
+      <Name>Potatotech.GestaoRestaurante.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Potatotech.GestaoRestaurante.Persistencia\Potatotech.GestaoRestaurante.Persistencia.csproj">
+      <Project>{e8fb68a1-cb34-4520-a26b-18b413617f4f}</Project>
+      <Name>Potatotech.GestaoRestaurante.Persistencia</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

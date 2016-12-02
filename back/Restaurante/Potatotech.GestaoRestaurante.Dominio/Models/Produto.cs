@@ -17,17 +17,18 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produto()
         {
-            this.Pedido = new HashSet<Pedido>();
+            this.PedidosDoProduto = new HashSet<PedidosDoProduto>();
         }
     
         public int Id { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
-        public Nullable<decimal> Imposto { get; set; }
+        public decimal Imposto { get; set; }
         public int TipoId { get; set; }
+        public int PedidoId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedido> Pedido { get; set; }
         public virtual TipoProduto TipoProduto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PedidosDoProduto> PedidosDoProduto { get; set; }
     }
 }

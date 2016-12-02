@@ -72,6 +72,9 @@
     <Compile Include="Models\Conta.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\C__RefactorLog.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Mesa.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
@@ -79,6 +82,9 @@
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pedido.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PedidoProduto.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produto.cs">
