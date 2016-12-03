@@ -71,8 +71,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
                 Id = p.Id,
                 TipoId = p.TipoId,
                 Nome = p.Nome,
-                Valor = p.Valor,
-                Imposto = p.Imposto
+                Valor = p.Valor
             };
 
             _unit.ProdutoRepository.Cadastrar(produto);

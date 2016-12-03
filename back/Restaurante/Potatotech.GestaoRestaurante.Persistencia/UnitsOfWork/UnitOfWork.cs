@@ -14,20 +14,36 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
         private IGenericRepository<Produto> _produtoRepository;
         private IGenericRepository<Ambiente> _ambienteRepository;
         private IGenericRepository<Pedido> _pedidoRepository;
+        private IGenericRepository<Mesa> _mesaRepository;
+        private IGenericRepository<Conta> _contaRepository;
+        private IGenericRepository<PedidosDoProduto> _pedidosDoProutoRepository;
 
         #endregion
 
         #region Properties
 
-        public IGenericRepository<Ambiente> AmbienteRepository
+        public IGenericRepository<Conta> ContaRepository
         {
             get
             {
-                if (_ambienteRepository == null)
+                if (_contaRepository == null)
                 {
-                    _ambienteRepository = new GenericRepository<Ambiente>(_context);
+                    _contaRepository = new GenericRepository<Conta>(_context);
                 }
-                return _ambienteRepository;
+                return _contaRepository;
+            }
+
+        }
+
+        public IGenericRepository<Mesa> MesaRepository
+        {
+            get
+            {
+                if (_mesaRepository == null)
+                {
+                    _mesaRepository = new GenericRepository<Mesa>(_context);
+                }
+                return _mesaRepository;
             }
 
         }
@@ -68,6 +84,18 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
                     _pedidoRepository = new GenericRepository<Pedido>(_context);
                 }
                 return _pedidoRepository;
+            }
+        }
+
+        public IGenericRepository<PedidosDoProduto> PedidosDopRodutoRepository
+        {
+            get
+            {
+                if (_pedidosDoProutoRepository == null)
+                {
+                    _pedidosDoProutoRepository = new GenericRepository<PedidosDoProduto>(_context);
+                }
+                return _pedidosDoProutoRepository;
             }
         }
 

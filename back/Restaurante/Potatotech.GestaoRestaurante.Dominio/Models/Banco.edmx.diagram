@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="RestauranteBDModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RestauranteBDModel.Usuario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="RestauranteBDModel.FK_Mesa_ToAmbiente" ManuallyRouted="false" />
-        <AssociationConnector Association="RestauranteBDModel.FK_Conta_ToMesa" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Conta_ToUsuario" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Pagamento_ToConta" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToConta" ManuallyRouted="false" />
@@ -28,6 +27,7 @@
         <EntityTypeShape EntityType="RestauranteBDModel.PedidosDoProduto" Width="1.5" PointX="14.125" PointY="8.375" />
         <AssociationConnector Association="RestauranteBDModel.FK_PedidoProduto_ToPedido1" />
         <AssociationConnector Association="RestauranteBDModel.FK_PedidoProduto_ToProduto1" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Mesa_ToConta" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

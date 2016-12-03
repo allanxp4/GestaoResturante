@@ -14,19 +14,13 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
     
     public partial class Mesa
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mesa()
-        {
-            this.Conta = new HashSet<Conta>();
-        }
-    
         public int Id { get; set; }
         public int Capacidade { get; set; }
         public bool Ocupada { get; set; }
         public int AmbienteId { get; set; }
+        public int ContaId { get; set; }
     
         public virtual Ambiente Ambiente { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Conta> Conta { get; set; }
+        public virtual Conta Conta { get; set; }
     }
 }

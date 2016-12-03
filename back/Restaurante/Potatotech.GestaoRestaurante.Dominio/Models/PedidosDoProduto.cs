@@ -19,6 +19,7 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         public int PedidoId { get; set; }
         public int Quantidade { get; set; }
         public string Observacoes { get; set; }
+        public decimal Valor { get; set; }
     
         public virtual Pedido Pedido { get; set; }
         public virtual Produto Produto { get; set; }

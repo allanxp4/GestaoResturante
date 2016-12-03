@@ -23,7 +23,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MesaId" Type="int" Nullable="false" />
           <Property Name="Desconto" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Pago" Type="bit" Nullable="false" />
           <Property Name="DataHoraPagamento" Type="datetime2" Precision="7" />
@@ -37,6 +36,7 @@
           <Property Name="Capacidade" Type="int" Nullable="false" />
           <Property Name="Ocupada" Type="bit" Nullable="false" />
           <Property Name="AmbienteId" Type="int" Nullable="false" />
+          <Property Name="ContaId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Pagamento">
           <Key>
@@ -68,6 +68,7 @@
           <Property Name="PedidoId" Type="int" Nullable="false" />
           <Property Name="Quantidade" Type="int" Nullable="false" />
           <Property Name="Observacoes" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Produto">
           <Key>
@@ -110,18 +111,6 @@
           <Property Name="Senha" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="TipoId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Conta_ToMesa">
-          <End Role="Mesa" Type="Self.Mesa" Multiplicity="1" />
-          <End Role="Conta" Type="Self.Conta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mesa">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Conta">
-              <PropertyRef Name="MesaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Conta_ToUsuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Conta" Type="Self.Conta" Multiplicity="*" />
@@ -143,6 +132,18 @@
             </Principal>
             <Dependent Role="Mesa">
               <PropertyRef Name="AmbienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mesa_ToConta">
+          <End Role="Conta" Type="Self.Conta" Multiplicity="1" />
+          <End Role="Mesa" Type="Self.Mesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mesa">
+              <PropertyRef Name="ContaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -255,16 +256,16 @@
           <EntitySet Name="TipoProduto" EntityType="Self.TipoProduto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Conta_ToMesa" Association="Self.FK_Conta_ToMesa">
-            <End Role="Mesa" EntitySet="Mesa" />
-            <End Role="Conta" EntitySet="Conta" />
-          </AssociationSet>
           <AssociationSet Name="FK_Conta_ToUsuario" Association="Self.FK_Conta_ToUsuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Conta" EntitySet="Conta" />
           </AssociationSet>
           <AssociationSet Name="FK_Mesa_ToAmbiente" Association="Self.FK_Mesa_ToAmbiente">
             <End Role="Ambiente" EntitySet="Ambiente" />
+            <End Role="Mesa" EntitySet="Mesa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mesa_ToConta" Association="Self.FK_Mesa_ToConta">
+            <End Role="Conta" EntitySet="Conta" />
             <End Role="Mesa" EntitySet="Mesa" />
           </AssociationSet>
           <AssociationSet Name="FK_Pagamento_ToConta" Association="Self.FK_Pagamento_ToConta">
@@ -317,15 +318,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MesaId" Type="Int32" Nullable="false" />
           <Property Name="Desconto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Pago" Type="Boolean" Nullable="false" />
           <Property Name="DataHoraPagamento" Type="DateTime" Precision="7" />
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mesa" Relationship="Self.FK_Conta_ToMesa" FromRole="Conta" ToRole="Mesa" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Conta_ToUsuario" FromRole="Conta" ToRole="Usuario" />
           <NavigationProperty Name="Pagamento" Relationship="Self.FK_Pagamento_ToConta" FromRole="Conta" ToRole="Pagamento" />
           <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_ToConta" FromRole="Conta" ToRole="Pedido" />
+          <NavigationProperty Name="Mesa" Relationship="RestauranteBDModel.FK_Mesa_ToConta" FromRole="Conta" ToRole="Mesa" />
         </EntityType>
         <EntityType Name="Mesa">
           <Key>
@@ -336,7 +336,8 @@
           <Property Name="Ocupada" Type="Boolean" Nullable="false" />
           <Property Name="AmbienteId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ambiente" Relationship="Self.FK_Mesa_ToAmbiente" FromRole="Mesa" ToRole="Ambiente" />
-          <NavigationProperty Name="Conta" Relationship="Self.FK_Conta_ToMesa" FromRole="Mesa" ToRole="Conta" />
+          <Property Name="ContaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Conta" Relationship="RestauranteBDModel.FK_Mesa_ToConta" FromRole="Mesa" ToRole="Conta" />
         </EntityType>
         <EntityType Name="Pagamento">
           <Key>
@@ -422,18 +423,6 @@
             </Principal>
             <Dependent Role="Mesa">
               <PropertyRef Name="AmbienteId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Conta_ToMesa">
-          <End Role="Mesa" Type="Self.Mesa" Multiplicity="1" />
-          <End Role="Conta" Type="Self.Conta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mesa">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Conta">
-              <PropertyRef Name="MesaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -536,10 +525,6 @@
             <End Role="Ambiente" EntitySet="Ambiente" />
             <End Role="Mesa" EntitySet="Mesa" />
           </AssociationSet>
-          <AssociationSet Name="FK_Conta_ToMesa" Association="Self.FK_Conta_ToMesa">
-            <End Role="Mesa" EntitySet="Mesa" />
-            <End Role="Conta" EntitySet="Conta" />
-          </AssociationSet>
           <AssociationSet Name="FK_Conta_ToUsuario" Association="Self.FK_Conta_ToUsuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Conta" EntitySet="Conta" />
@@ -578,6 +563,10 @@
             <End Role="Produto" EntitySet="Produto" />
             <End Role="PedidosDoProduto" EntitySet="PedidosDoProduto" />
           </AssociationSet>
+          <AssociationSet Name="FK_Mesa_ToConta" Association="RestauranteBDModel.FK_Mesa_ToConta">
+            <End Role="Conta" EntitySet="Conta" />
+            <End Role="Mesa" EntitySet="Mesa" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__RefactorLog">
           <Key>
@@ -596,6 +585,7 @@
           <Property Name="Observacoes" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Pedido" Relationship="RestauranteBDModel.FK_PedidoProduto_ToPedido1" FromRole="PedidosDoProduto" ToRole="Pedido" />
           <NavigationProperty Name="Produto" Relationship="RestauranteBDModel.FK_PedidoProduto_ToProduto1" FromRole="PedidosDoProduto" ToRole="Produto" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
         </EntityType>
         <Association Name="FK_PedidoProduto_ToPedido1">
           <End Type="RestauranteBDModel.Pedido" Role="Pedido" Multiplicity="1" />
@@ -621,6 +611,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Mesa_ToConta">
+          <End Type="RestauranteBDModel.Conta" Role="Conta" Multiplicity="1" />
+          <End Type="RestauranteBDModel.Mesa" Role="Mesa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Conta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mesa">
+              <PropertyRef Name="ContaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -639,7 +641,6 @@
             <EntityTypeMapping TypeName="RestauranteBDModel.Conta">
               <MappingFragment StoreEntitySet="Conta">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="MesaId" ColumnName="MesaId" />
                 <ScalarProperty Name="Desconto" ColumnName="Desconto" />
                 <ScalarProperty Name="Pago" ColumnName="Pago" />
                 <ScalarProperty Name="DataHoraPagamento" ColumnName="DataHoraPagamento" />
@@ -650,6 +651,7 @@
           <EntitySetMapping Name="Mesa">
             <EntityTypeMapping TypeName="RestauranteBDModel.Mesa">
               <MappingFragment StoreEntitySet="Mesa">
+                <ScalarProperty Name="ContaId" ColumnName="ContaId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Capacidade" ColumnName="Capacidade" />
                 <ScalarProperty Name="Ocupada" ColumnName="Ocupada" />
@@ -736,6 +738,7 @@
           <EntitySetMapping Name="PedidosDoProduto">
             <EntityTypeMapping TypeName="RestauranteBDModel.PedidosDoProduto">
               <MappingFragment StoreEntitySet="PedidosDoProduto">
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
                 <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
                 <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
                 <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />

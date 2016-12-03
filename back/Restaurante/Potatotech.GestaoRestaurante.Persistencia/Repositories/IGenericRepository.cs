@@ -13,6 +13,7 @@ namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
         void Alterar(T REntidade);
         void Remover(int id);
         ICollection<T> Listar();
+        ICollection<T> Listar(Expression<Func<T, bool>> filtro);
         T BuscarPorId(int id);
         ICollection<T> BuscarPor(Expression<Func<T, bool>> filtro);
         ICollection<T> Paginar(int tamanho, int pagina);

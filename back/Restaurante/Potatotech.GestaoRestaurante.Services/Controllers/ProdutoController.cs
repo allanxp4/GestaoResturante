@@ -19,5 +19,11 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             var produtos = _unit.ProdutoRepository.BuscarPor(p => p.Nome.Contains(termo));
             return Mapper.Map<ICollection<ProdutoDto>>(produtos);
         }
+
+        public ICollection<ProdutoDto> Get()
+        {
+            var produtos = _unit.ProdutoRepository.Listar();
+            return Mapper.Map<ICollection<ProdutoDto>>(produtos);
+        }
     }
 }

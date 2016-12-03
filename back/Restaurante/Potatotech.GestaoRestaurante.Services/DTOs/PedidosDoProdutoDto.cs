@@ -7,5 +7,6 @@ namespace Potatotech.GestaoRestaurante.Services.DTOs
 {
     public class PedidosDoProdutoDto
     {
+        
     }
 }

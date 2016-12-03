@@ -19,20 +19,21 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         {
             this.Pagamento = new HashSet<Pagamento>();
             this.Pedido = new HashSet<Pedido>();
+            this.Mesa = new HashSet<Mesa>();
         }
     
         public int Id { get; set; }
-        public int MesaId { get; set; }
         public decimal Desconto { get; set; }
         public bool Pago { get; set; }
         public Nullable<System.DateTime> DataHoraPagamento { get; set; }
         public int UsuarioId { get; set; }
     
-        public virtual Mesa Mesa { get; set; }
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pagamento> Pagamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedido { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mesa> Mesa { get; set; }
     }
 }

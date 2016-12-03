@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Potatotech.GestaoRestaurante.Services.DTOs;
 
 namespace Potatotech.GestaoRestaurante.Services.Controllers
 {
@@ -19,69 +20,21 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             return _unit.PedidoRepository.Listar();
         }
 
-        public ICollection<Pedido> Get(String nome_busca)
+        public IHttpActionResult Post(PedidoDto pedido)
         {
-            //Todo:Pedido, não possui um nome, mudar campo de pesquisa
-            ICollection<Pedido> lista = new List<Pedido>();
-            var lista_aux = _unit.PedidoRepository.Listar();
-            if (lista_aux.Count > 4)
+            var contaId = 0;
+            var mesa = _unit.MesaRepository.BuscarPorId(pedido.Mesa);
+            if (!mesa.Ocupada)
             {
-                foreach(var rel in lista_aux)
-                {
-                    while(lista_aux.Count < 4)
-                    {
-                        lista.Add(rel);
-                    }
-                }
+                //contaId = _unit.ContaRepository.Cadastrar(new Conta());
+                mesa.ContaId = contaId;
+                _unit.MesaRepository.Alterar(mesa);
+                var conta = _unit.ContaRepository.BuscarPorId(mesa.ContaId);
+                //TODO: terminar essa bagaça
+                
+
             }
-
-            else
-            {
-                foreach (var rel in lista_aux)
-                {
-                    lista.Add(rel);
-                }
-            }
-
-            return lista;
-        }
-
-        public IHttpActionResult Post(Pedido pedido)
-        {
-            if (ModelState.IsValid)
-            {
-                _unit.PedidoRepository.Cadastrar(pedido);
-                _unit.Salvar();
-                var uri = Url.Link("DefaultApi", new { id = pedido.Id });
-                return Created<Pedido>(new Uri(uri), pedido);
-            }
-            else
-            {
-                return BadRequest(ModelState);
-            }
-        }
-
-        public IHttpActionResult Put(int id, Pedido pedido)
-        {
-            if (ModelState.IsValid)
-            {
-                pedido.Id = id;
-                _unit.PedidoRepository.Alterar(pedido);
-                _unit.Salvar();
-                return Ok(pedido);
-            }
-            else
-            {
-                return BadRequest(ModelState);
-            }
-        }
-
-        public void Delete(int id)
-        {
-
-            _unit.PedidoRepository.Remover(id);
-            _unit.Salvar();
-
+            return InternalServerError();
         }
     }
 }
