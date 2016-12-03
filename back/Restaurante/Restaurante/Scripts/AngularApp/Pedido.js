@@ -23,7 +23,7 @@ appGarcom.controller('pedido-controller',
         //Adciona produtos ao objeto para ser enviado (e consequentemente a lista pelo 2-way binding)
         $scope.adicionarProduto = function () {
             console.log($scope.select2.ProdutoAtual);
-            $scope.select2.ProdutoAtual.quantidade = $scope.qtd;
+            $scope.select2.ProdutoAtual.Quantidade = $scope.qtd;
             $scope.select2.ProdutoAtual.uuid = Math.random();
             $scope.pedido.produtos.push(JSON.parse(JSON.stringify($scope.select2.ProdutoAtual)));
             //gambis pra copiar o objeto
@@ -32,19 +32,34 @@ appGarcom.controller('pedido-controller',
         //Lista de produtos do pedido para serem enviados
         $scope.pedido.produtos = [];
 
+     
         //produtos de exemplo, na aplicação real eles virão do servidor
         $scope.produtos = [
             {
-                id: "1",
-                descricao: "Burgão2",
-                preco: 12.98
+                Id: "1",
+                Nome: "Burgão2",
+                Valor: 12.98
             },
             {
-                id: "2",
-                descricao: "Coisa2",
-                preco: 5.10
+                Id: "2",
+                Nome: "Coisa2",
+                Valor: 5.10
             }
         ];
+
+        $scope.atualizarSelect = function (termo) {
+            $http({
+                method: 'GET',
+                url: 'api/Produto?termo=' + termo,
+            }).then(function (dados) {
+                console.log(dados);
+                $scope.produtos = dados.data;
+            }, function (erro) {
+                toastr.warning("Erro!");
+                console.log(erro);
+            })
+        }
+
 
         //Modal de opções
         $scope.produtoOpcoes = {};

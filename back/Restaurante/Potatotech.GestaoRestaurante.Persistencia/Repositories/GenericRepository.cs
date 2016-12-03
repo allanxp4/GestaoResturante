@@ -54,5 +54,11 @@ namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
         {
             return _dbSet.Skip(tamanho*pagina).Take(tamanho).ToList();
         }
+
+        public virtual ICollection<T> Paginar(int tamanho, int pagina, Expression<Func<T, bool>> filtro)
+        {
+            return _dbSet.Where(filtro).Skip(tamanho * pagina).Take(tamanho).ToList();
+        }
+
     }
 }

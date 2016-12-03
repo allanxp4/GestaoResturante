@@ -84,7 +84,7 @@
     <Compile Include="Models\Pedido.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PedidoProduto.cs">
+    <Compile Include="Models\PedidosDoProduto.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Produto.cs">

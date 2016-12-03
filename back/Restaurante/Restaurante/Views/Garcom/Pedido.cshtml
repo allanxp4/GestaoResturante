@@ -43,10 +43,10 @@
 
                                     <ui-select class="dynamic-select" ng-model="select2.ProdutoAtual">
                                         <ui-select-match>
-                                            <span ng-bind="$select.selected.descricao"></span>
+                                            <span ng-bind="$select.selected.Nome"></span>
                                         </ui-select-match>
-                                        <ui-select-choices repeat="produto in (produtos | filter: $select.search) track by produto.id">
-                                            <span ng-bind="produto.descricao"></span>
+                                        <ui-select-choices refresh="atualizarSelect($select.search)"  refresh-delay="0" repeat="produto in (produtos | filter: $select.search) track by produto.Id">
+                                            <span ng-bind="produto.Nome"></span>
                                         </ui-select-choices>
                                     </ui-select>
                                 </div>
@@ -80,10 +80,10 @@
                                     
                                     <tbody>
                                     <tr ng-repeat="p in pedido.produtos track by $index" ng-click="abrirOpcoes(p)">
-                                        <td>{{ p.id }}</td>
-                                        <td>{{ p.descricao }}</td>
-                                        <td>{{ p.quantidade }}</td>
-                                        <td>{{ p.preco }}</td>
+                                        <td>{{ p.Id }}</td>
+                                        <td>{{ p.Nome }}</td>
+                                        <td>{{ p.Quantidade }}</td>
+                                        <td>{{ p.Valor }}</td>
                                     </tr>
                                     </tbody>
 

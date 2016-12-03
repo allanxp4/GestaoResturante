@@ -355,7 +355,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Viagem" Type="Boolean" Nullable="false" />
-          <Property Name="Observacoes" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ContaId" Type="Int32" Nullable="false" />
           <Property Name="DataHora" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
@@ -375,7 +374,6 @@
           <Property Name="Imposto" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TipoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TipoProduto" Relationship="Self.FK_Produto_ToTipo" FromRole="Produto" ToRole="TipoProduto" />
-          <Property Name="PedidoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PedidosDoProduto" Relationship="RestauranteBDModel.FK_PedidoProduto_ToProduto1" FromRole="Produto" ToRole="PedidosDoProduto" />
         </EntityType>
         <EntityType Name="TipoPagamento">

@@ -23,7 +23,7 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
         {
             //Todo:Pedido, não possui um nome, mudar campo de pesquisa
             ICollection<Pedido> lista = new List<Pedido>();
-            var lista_aux = _unit.PedidoRepository.BuscarPor(a => a.Observacoes.Contains(nome_busca));
+            var lista_aux = _unit.PedidoRepository.Listar();
             if (lista_aux.Count > 4)
             {
                 foreach(var rel in lista_aux)

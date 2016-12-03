@@ -5,6 +5,7 @@
     [PedidoId] INT NOT NULL, 
     [Quantidade] INT NOT NULL, 
     [Observacoes] NVARCHAR(2000) NOT NULL, 
+    [Valor] DECIMAL NOT NULL, 
     CONSTRAINT [FK_PedidoProduto_ToProduto] FOREIGN KEY ([ProdutoId]) REFERENCES [Produto]([Id]), 
     CONSTRAINT [FK_PedidoProduto_ToPedido] FOREIGN KEY ([PedidoId]) REFERENCES [Pedido]([Id])
 )

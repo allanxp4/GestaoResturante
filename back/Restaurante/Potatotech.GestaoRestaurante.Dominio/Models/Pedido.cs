@@ -22,7 +22,6 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
     
         public int Id { get; set; }
         public bool Viagem { get; set; }
-        public string Observacoes { get; set; }
         public int ContaId { get; set; }
         public System.DateTime DataHora { get; set; }
         public int UsuarioId { get; set; }
