@@ -20,8 +20,17 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
 
         public IHttpActionResult Post(Ambiente ambiente)
         {
-            _unit.AmbienteRepository.Cadastrar(ambiente);
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                _unit.AmbienteRepository.Cadastrar(ambiente);
+                _unit.Salvar();
+                return Ok();
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+            
         }
     }
 }

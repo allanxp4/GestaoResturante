@@ -183,6 +183,8 @@
     <Compile Include="Controllers\MesaController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\TipoUsuarioController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DTOs\ContaDto.cs" />
     <Compile Include="DTOs\MesaDto.cs" />
     <Compile Include="DTOs\PedidoDto.cs" />

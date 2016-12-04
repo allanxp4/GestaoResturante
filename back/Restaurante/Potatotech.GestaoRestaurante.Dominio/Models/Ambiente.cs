@@ -14,16 +14,7 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
     
     public partial class Ambiente
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ambiente()
-        {
-            this.Mesa = new HashSet<Mesa>();
-        }
-    
         public int Id { get; set; }
         public string Nome { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mesa> Mesa { get; set; }
     }
 }

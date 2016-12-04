@@ -25,28 +25,34 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
 
         public IHttpActionResult Post(PedidoDto p)
         {
-            var pedido = Mapper.Map<Pedido>(p);
-            var mesa = _unit.MesaRepository.BuscarPorId(p.Mesa);
+            if (ModelState.IsValid)
+            {
+                var pedido = Mapper.Map<Pedido>(p);
+                var mesa = _unit.MesaRepository.BuscarPorId(p.Mesa);
 
-            if (!mesa.Ocupada)
-            {
-                _conta = _unit.ContaRepository.Cadastrar(new Conta()) as Conta;
-                _unit.MesaRepository.Alterar(mesa);
-                _conta.Pedido.Add(pedido);
-                //TODO: terminar essa bagaça
-            }
-            else
-            {
-                var contas = _unit.ContaRepository.BuscarPor(c => c.MesaId == mesa.Id && c.Fechada == false);
-                if (contas.Count == 1)
+                if (!mesa.Ocupada)
                 {
-                    _conta = contas.First();
+                    _conta = _unit.ContaRepository.Cadastrar(new Conta() { MesaId = mesa.Id }) as Conta;
                     _conta.Pedido.Add(pedido);
+                    _unit.Salvar();
+                    _unit.ContaRepository.Alterar(_conta);
+                    _unit.Salvar();
+                    //TODO: terminar essa bagaça
                 }
                 else
                 {
-                    return InternalServerError();
+                    var contas = _unit.ContaRepository.BuscarPor(c => c.MesaId == mesa.Id && c.Fechada == false);
+                    if (contas.Count == 1)
+                    {
+                        _conta = contas.First();
+                        _conta.Pedido.Add(pedido);
+                    }
+                    else
+                    {
+                        return InternalServerError();
+                    }
                 }
+                
             }
             return Ok();
         }

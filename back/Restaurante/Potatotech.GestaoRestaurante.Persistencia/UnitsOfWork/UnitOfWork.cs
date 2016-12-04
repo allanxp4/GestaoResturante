@@ -17,10 +17,36 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
         private IGenericRepository<Mesa> _mesaRepository;
         private IGenericRepository<Conta> _contaRepository;
         private IGenericRepository<PedidosDoProduto> _pedidosDoProutoRepository;
+        private IGenericRepository<Usuario> _usuarioRepository;
+        private IGenericRepository<TipoUsuario> _tipoUsuarioRepository;
 
         #endregion
 
         #region Properties
+
+        public IGenericRepository<Usuario> UsuarioRepository
+        {
+            get
+            {
+                if (_usuarioRepository == null)
+                {
+                    _usuarioRepository = new GenericRepository<Usuario>(_context);
+                }
+                return _usuarioRepository;
+            }
+        }
+
+        public IGenericRepository<TipoUsuario> TipoUsuarioRepository
+        {
+            get
+            {
+                if (_tipoUsuarioRepository == null)
+                {
+                    _tipoUsuarioRepository = new GenericRepository<TipoUsuario>(_context);
+                }
+                return _tipoUsuarioRepository;
+            }
+        }
 
         public IGenericRepository<Ambiente> AmbienteRepository
         {

@@ -9,26 +9,24 @@ using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 
 namespace Potatotech.GestaoRestaurante.Services.Controllers
 {
-    public class MesaController : ApiController
+    public class UsuarioController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
-        public ICollection<Mesa> Get()
+        public ICollection<Usuario> Get()
         {
-            return _unit.MesaRepository.Listar();
+            return _unit.UsuarioRepository.Listar();
         }
 
-        public IHttpActionResult Post(Mesa mesa)
+        public IHttpActionResult Post(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                _unit.MesaRepository.Cadastrar(mesa);
+                _unit.UsuarioRepository.Cadastrar(usuario);
                 _unit.Salvar();
                 return Ok();
             }
-            else
-            {
-                return BadRequest(ModelState);
-            }
+            
+            return BadRequest(ModelState);
             
         }
     }

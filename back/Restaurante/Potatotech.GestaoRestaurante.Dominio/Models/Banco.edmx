@@ -312,7 +312,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Mesa" Relationship="Self.FK_Mesa_ToAmbiente" FromRole="Ambiente" ToRole="Mesa" />
         </EntityType>
         <EntityType Name="Conta">
           <Key>
