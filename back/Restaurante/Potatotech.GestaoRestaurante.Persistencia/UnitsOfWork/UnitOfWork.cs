@@ -28,6 +28,7 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
         {
             get
             {
+                _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
                 if (_usuarioRepository == null)
                 {
                     _usuarioRepository = new GenericRepository<Usuario>(_context);
@@ -115,8 +116,10 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
 
         public IGenericRepository<Pedido> PedidoRepository
         {
+
             get
             {
+                _context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
                 if (_pedidoRepository == null)
                 {
                     _pedidoRepository = new GenericRepository<Pedido>(_context);

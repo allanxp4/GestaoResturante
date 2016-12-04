@@ -32,11 +32,11 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
 
                 if (!mesa.Ocupada)
                 {
-                    _conta = _unit.ContaRepository.Cadastrar(new Conta() { MesaId = mesa.Id }) as Conta;
+                    _conta = _unit.ContaRepository.Cadastrar(new Conta() { MesaId = mesa.Id, UsuarioId = 1 }) as Conta;
                     _conta.Pedido.Add(pedido);
                     _unit.Salvar();
-                    _unit.ContaRepository.Alterar(_conta);
-                    _unit.Salvar();
+                    //_unit.ContaRepository.Alterar(_conta);
+                    //_unit.Salvar();
                     //TODO: terminar essa bagaça
                 }
                 else
