@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Potatotech.GestaoRestaurante.Dominio.Models;
 
 namespace Potatotech.GestaoRestaurante.Services.DTOs
 {
     public class PedidoDto
     {
         public int Mesa { get; set; }
-        public List<PedidosDoProdutoDto> Produtos { get; set; }
+        public List<PedidosDoProduto> Produtos { get; set; }
         public bool Viagem { get; set; }
         public ContaDto Conta { get; set; }
         public int UsuarioId { get; set; }

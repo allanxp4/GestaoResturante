@@ -22,6 +22,18 @@ namespace Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork
 
         #region Properties
 
+        public IGenericRepository<Ambiente> AmbienteRepository
+        {
+            get
+            {
+                if (_ambienteRepository == null)
+                {
+                    _ambienteRepository = new GenericRepository<Ambiente>(_context);
+                }
+                return _ambienteRepository;
+            }
+        }
+
         public IGenericRepository<Conta> ContaRepository
         {
             get

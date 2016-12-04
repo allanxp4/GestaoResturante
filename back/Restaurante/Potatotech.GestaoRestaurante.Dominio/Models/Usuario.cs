@@ -17,8 +17,8 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Conta = new HashSet<Conta>();
             this.Pedido = new HashSet<Pedido>();
+            this.Conta = new HashSet<Conta>();
         }
     
         public int Id { get; set; }
@@ -28,9 +28,9 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         public int TipoId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Conta> Conta { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedido { get; set; }
         public virtual TipoUsuario TipoUsuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Conta> Conta { get; set; }
     }
 }

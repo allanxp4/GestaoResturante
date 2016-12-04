@@ -9,7 +9,7 @@ namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
 {
     public interface IGenericRepository<T>
     {
-        void Cadastrar(T Rentidade);
+        Object Cadastrar(T Rentidade);
         void Alterar(T REntidade);
         void Remover(int id);
         ICollection<T> Listar();

@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
+using AutoMapper;
 using Potatotech.GestaoRestaurante.Services.DTOs;
 
 namespace Potatotech.GestaoRestaurante.Services.Controllers
@@ -14,27 +16,39 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
     public class PedidoController : ApiController
     {
         private UnitOfWork _unit = new UnitOfWork();
+        private Conta _conta;
 
         public ICollection<Pedido> Get()
         {
             return _unit.PedidoRepository.Listar();
         }
 
-        public IHttpActionResult Post(PedidoDto pedido)
+        public IHttpActionResult Post(PedidoDto p)
         {
-            var contaId = 0;
-            var mesa = _unit.MesaRepository.BuscarPorId(pedido.Mesa);
+            var pedido = Mapper.Map<Pedido>(p);
+            var mesa = _unit.MesaRepository.BuscarPorId(p.Mesa);
+
             if (!mesa.Ocupada)
             {
-                //contaId = _unit.ContaRepository.Cadastrar(new Conta());
-                mesa.ContaId = contaId;
+                _conta = _unit.ContaRepository.Cadastrar(new Conta()) as Conta;
                 _unit.MesaRepository.Alterar(mesa);
-                var conta = _unit.ContaRepository.BuscarPorId(mesa.ContaId);
+                _conta.Pedido.Add(pedido);
                 //TODO: terminar essa bagaça
-                
-
             }
-            return InternalServerError();
+            else
+            {
+                var contas = _unit.ContaRepository.BuscarPor(c => c.MesaId == mesa.Id && c.Fechada == false);
+                if (contas.Count == 1)
+                {
+                    _conta = contas.First();
+                    _conta.Pedido.Add(pedido);
+                }
+                else
+                {
+                    return InternalServerError();
+                }
+            }
+            return Ok();
         }
     }
 }

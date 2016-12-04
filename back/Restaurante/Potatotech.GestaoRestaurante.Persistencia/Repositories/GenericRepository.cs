@@ -34,10 +34,11 @@ namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
             return _dbSet.Find(id);
         }
 
-        public virtual void Cadastrar(T entidade) 
+        public virtual object Cadastrar(T entidade) 
         {
             _dbSet.Add(entidade);
-            
+            return entidade;
+
         }
         
         public virtual ICollection<T> Listar()
