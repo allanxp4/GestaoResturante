@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Omu.ValueInjecter;
 using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 using Potatotech.GestaoRestaurante.Web.ViewModels;
+using AutoMapper;
 
 namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 {

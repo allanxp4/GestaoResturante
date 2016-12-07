@@ -1,4 +1,6 @@
-﻿<div class="modal fade" id="Deletar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.ProdutoViewModel
+
+<div class="modal fade" id="Deletar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,7 +13,7 @@
             <div class="modal-footer">
                 @using (Html.BeginForm("Deletar", "Produto"))
                 {
-                    <input type="hidden" id="produtoId" name="produtoId" />
+                    <input type="hidden" id="pId" name="pId" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                     <button type="submit" class="btn btn-primary">Sim</button>
                 }

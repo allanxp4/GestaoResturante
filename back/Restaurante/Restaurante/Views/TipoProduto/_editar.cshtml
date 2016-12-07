@@ -13,11 +13,11 @@
                     <input type="hidden" id="idTipoProduto" name="idTipoProduto" />
                     <div class="form-group">
                         <label>Cod.</label>
-                        @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly = "readonly" })
+                        @Html.TextBoxFor(p => p.Id, new { @class = "form-control", @readonly = "readonly", id="cod" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(t => t.Nome)
-                        @Html.TextBoxFor(t => t.Nome, new { @class = "form-control" })
+                        @Html.TextBoxFor(t => t.Nome, new { @class = "form-control", id="nm" })
                     </div>
                 </div>
                 <div class="modal-footer">

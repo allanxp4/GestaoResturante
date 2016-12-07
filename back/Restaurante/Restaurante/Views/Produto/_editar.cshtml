@@ -7,29 +7,30 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Cadastrar Produto</h4>
             </div>
-            @using (Html.BeginForm("Cadastrar", "Produto"))
+            @using (Html.BeginForm("Editar", "Produto"))
             {
                 <div class="modal-body">
                     <input type="hidden" id="produtoId" name="produtoId" />
                     <div class="form-group">
+                        @Html.LabelFor(p => p.Id)
+                        @Html.TextBoxFor(p => p.Id, new {@class = "form-control", @readonly = "readonly", id = "cd" })
+                    </div>
+
+                    <div class="form-group">
                         @Html.LabelFor(p => p.TipoId)
-                        @Html.DropDownListFor(p => p.TipoId, Model.ListaTipoProduto, "Selecione", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.TipoId)
+                        @Html.DropDownListFor(p => p.TipoId, Model.ListaTipoProduto, "Selecione", new { @class = "form-control", id = "idTipo" })                
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(p => p.Nome)
-                        @Html.TextBoxFor(p => p.Nome, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Nome)
+                        @Html.TextBoxFor(p => p.Nome, new { @class = "form-control", id= "nome" })                       
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(p => p.Valor)
-                        @Html.TextBoxFor(p => p.Valor, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Valor)
+                        @Html.TextBoxFor(p => p.Valor, new { @class = "form-control", id = "valor" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(p => p.Imposto)
-                        @Html.TextBoxFor(p => p.Imposto, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Imposto)
+                        @Html.TextBoxFor(p => p.Imposto, new { @class = "form-control", id = "imposto" })
                     </div>
                 </div>
                 <div class="modal-footer">

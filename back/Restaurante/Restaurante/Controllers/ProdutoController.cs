@@ -80,6 +80,32 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             return RedirectToAction("Listar");
         }
 
+        public ActionResult Deletar(int pId)
+        {
+            _unit.ProdutoRepository.Remover(pId);
+            _unit.Salvar();
+
+            return RedirectToAction("Listar");
+        }
+
+        [HttpPost]
+        public ActionResult Editar(ProdutoViewModel p)
+        {
+            var produto = new Produto()
+            {
+                Id = p.Id,
+                TipoId = p.TipoId,
+                Nome = p.Nome,
+                Valor = p.Valor,
+                Imposto = p.Imposto
+            };
+
+            _unit.ProdutoRepository.Alterar(produto);
+            _unit.Salvar();
+
+            return RedirectToAction("Listar");
+        }
+
         #endregion
 
       

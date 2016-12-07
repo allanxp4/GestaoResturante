@@ -16,18 +16,14 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
 
         public int Id { get; set; }
 
-        [StringLength(50)]
-        [Required(ErrorMessage = "Por favor digite um nome", AllowEmptyStrings = true)]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Por favor digite um valor")]
         public decimal Valor { get; set; }
 
-        [Required(ErrorMessage = "Por favor digite um valor")]
         [Display(Name = "Valor Imposto ")]
         public Nullable<decimal> Imposto { get; set; }
 
-        [Required(ErrorMessage = "Por favor seleciona o tipo do produto")]
         [Display(Name = "Tipo do Produto")]
         public int TipoId { get; set; }
 

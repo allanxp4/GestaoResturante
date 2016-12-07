@@ -22,14 +22,14 @@
     </div>
     <div class="x_content">
         <table class="table">
-            <thead>
+            <thead class="row">
                 <tr>
-                    <th>Cod.</th>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th>Imposto</th>
-                    <th>Tipo do Produto</th>
-                    <th>Ações</th>
+                    <th class="col-md-2">Cod.</th>
+                    <th class="col-md-2">Nome</th>
+                    <th class="col-md-2">Valor</th>
+                    <th class="col-md-2">Imposto</th>
+                    <th class="col-md-2">Tipo do Produto</th>
+                    <th class="col-md-2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,8 +42,8 @@
                         <th>@p.Imposto</th>
                         <th>@p.TipoProduto.Nome</th>
                         <td>
-                            <button onclick="produtoId.value = @p.Id" class="btn btn-primary" data-toggle="modal" data-target="#Editar">Editar</button>
-                            <button onclick="produtoId.value = @p.Id " type="button" class="btn btn-danger editar" data-toggle="modal" data-target="#Deletar">Apagar</button>
+                            <button data-id="@p.Id"  class="btn btn-primary edit" data-toggle="modal" data-target="#Editar">Editar</button>
+                            <button onclick="pId.value = @p.Id " type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletar">Apagar</button>
                         </td>
                     </tr>
                 }
@@ -54,4 +54,25 @@
         @Html.Partial("_deletar")
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $().ready(function () {
+            $(".edit").click(function () {
+                $.ajax({
+                    url: "http://localhost:8014/api/Produto/" + $(this).data("id"),
+                    method: "GET",
+                    success: function (data) {
+                        $("#cd").val(data.Id);
+                        $("#idTipo").val(data.TipoId);
+                        $("#nome").val(data.Nome);
+                        $("#valor").val(data.Valor);
+                        $("#imposto").val(data.Imposto)
+                    }
+                })
+            })
+        })
+    </script>
+    
+    }
 

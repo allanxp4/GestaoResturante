@@ -1,4 +1,4 @@
-﻿var appGarcom = angular.module('restaurante.garcom', ['ui.select', 'ngSanitize']);
+﻿    var appGarcom = angular.module('restaurante.garcom', ['ui.select', 'ngSanitize']);
 appGarcom.controller('pedido-controller',
     function ($scope, $http) {
         $scope.pedido = {

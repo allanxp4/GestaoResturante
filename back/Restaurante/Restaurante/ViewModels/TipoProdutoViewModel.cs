@@ -11,7 +11,6 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
         public ICollection<TipoProduto> TiposProduto { get; set; }
         public int Id { get; set; }
         public string Nome { get; set; }
-
         public virtual ICollection<Produto> Produto { get; set; }
     }
 }

@@ -22,12 +22,12 @@
     </div>
     <div class="x_content">
 
-        <table class="table">
-            <thead>
+        <table class="table table-hover">
+            <thead class="row">
                 <tr>
-                    <th>Cod.</th>
-                    <th>Nome</th>
-                    <th>Ações</th>
+                    <th class="col-md-5">Cod.</th>
+                    <th class="col-md-5">Nome</th>
+                    <th class="col-md-2">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,8 +37,8 @@
                         <td>@tp.Id</td>
                         <td>@tp.Nome</td>
                         <td>
-                            <button onclick="idTipoProduto.value = @tp.Id" class="btn btn-primary" data-toggle="modal" data-target="#Editar">Editar</button>
-                            <button onclick="tipoProdutoId.value = @tp.Id " type="button" class="btn btn-danger editar" data-toggle="modal" data-target="#Deletar">Apagar</button>
+                            <button data-id="@tp.Id" class="btn btn-primary edit" data-toggle="modal" data-target="#Editar">Editar</button>
+                            <button onclick="tipoId.value = @tp.Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletar">Apagar</button>
                         </td>
                     </tr>
                 }
@@ -51,4 +51,23 @@
 
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $().ready(function () {
+            $(".edit").click(function () {
+                $.ajax({
+                    url: "http://localhost:8014/api/TipoProduto/" + $(this).data("id"),
+                    method: "GET",
+                    success: function (data) {
+                        $("#cod").val(data.Id);
+                        $("#nm").val(data.Nome);
+                    }
+                })
+            })
+        })
+    </script>
+   
+    
+    }
 

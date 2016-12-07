@@ -7,6 +7,7 @@ using System.Web.Http;
 using AutoMapper;
 using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 using Potatotech.GestaoRestaurante.Services.DTOs;
+using Potatotech.GestaoRestaurante.Dominio.Models;
 
 namespace Potatotech.GestaoRestaurante.Services.Controllers
 {
@@ -25,5 +26,17 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             var produtos = _unit.ProdutoRepository.Listar();
             return Mapper.Map<ICollection<ProdutoDto>>(produtos);
         }
+
+        public Produto Get(int id)
+        {
+            return _unit.ProdutoRepository.BuscarPorId(id);
+        }
+
+        public void Delete(int id)
+        {
+            _unit.ProdutoRepository.Remover(id);
+            _unit.Salvar();
+        }
+
     }
 }

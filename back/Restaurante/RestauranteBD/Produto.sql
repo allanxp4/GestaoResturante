@@ -5,5 +5,5 @@
     [Valor] DECIMAL NOT NULL, 
     [Imposto] DECIMAL NOT NULL DEFAULT 0, 
     [TipoId] INT NOT NULL,    
-    CONSTRAINT [FK_Produto_ToTipo] FOREIGN KEY ([TipoId]) REFERENCES [TipoProduto]([Id]) 
+    CONSTRAINT [FK_Produto_ToTipo] FOREIGN KEY ([TipoId]) REFERENCES [TipoProduto]([Id]) ON DELETE CASCADE
 )

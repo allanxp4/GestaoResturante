@@ -23,7 +23,7 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public decimal Valor { get; set; }
-        public decimal Imposto { get; set; }
+        public Nullable<decimal> Imposto { get; set; }
         public int TipoId { get; set; }
     
         public virtual TipoProduto TipoProduto { get; set; }

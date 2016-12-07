@@ -40,9 +40,9 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Editar(int idTipoControle)
+        public ActionResult Editar(int tipoId)
         {
-            var tipoProduto = _unit.TipoProdutoRepository.BuscarPorId(idTipoControle);
+            var tipoProduto = _unit.TipoProdutoRepository.BuscarPorId(tipoId);
 
             var viewModel = new TipoProdutoViewModel()
             {
@@ -73,9 +73,24 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Deletar(int tipoProdutoId)
+        public ActionResult Editar(TipoProdutoViewModel tipoProduto)
         {
-            _unit.TipoProdutoRepository.Remover(tipoProdutoId);
+            var tp = new TipoProduto()
+            {
+                Id = tipoProduto.Id,
+                Nome = tipoProduto.Nome
+            };
+
+            _unit.TipoProdutoRepository.Alterar(tp);
+            _unit.Salvar();
+
+            return RedirectToAction("Listar");
+        }
+
+        [HttpPost]
+        public ActionResult Deletar(int tipoId)
+        {
+            _unit.TipoProdutoRepository.Remover(tipoId);
             _unit.Salvar();
 
             return RedirectToAction("Listar");
