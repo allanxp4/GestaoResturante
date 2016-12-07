@@ -16,6 +16,8 @@ namespace Potatotech.GestaoRestaurante.Web.App_Start
             Mapper.CreateMap<Pedido, PedidoViewModel>().ReverseMap();
             Mapper.CreateMap<Produto, ProdutoDto>().ReverseMap();
             Mapper.CreateMap<Pedido, PedidoDto>().ReverseMap();
+            Mapper.CreateMap<PedidosDoProduto, PedidosDoProdutoDto>().ReverseMap();
+            Mapper.CreateMap<Conta, ContaDto>().ReverseMap();
         }
     }
 }

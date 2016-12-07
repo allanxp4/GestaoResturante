@@ -18,9 +18,10 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
         private UnitOfWork _unit = new UnitOfWork();
         private Conta _conta;
 
-        public ICollection<Pedido> Get()
+        public ICollection<PedidoDto> Get()
         {
-            return _unit.PedidoRepository.Listar();
+            var listaRaw =_unit.PedidoRepository.Listar();
+            return Mapper.Map<ICollection<PedidoDto>>(listaRaw);
         }
 
         public IHttpActionResult Post(PedidoDto p)
@@ -28,15 +29,17 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             if (ModelState.IsValid)
             {
                 var pedido = Mapper.Map<Pedido>(p);
-                var mesa = _unit.MesaRepository.BuscarPorId(p.Mesa);
+                pedido.UsuarioId = 1;
+                var mesa = _unit.MesaRepository.BuscarPorId(p.MesaId);
 
                 if (!mesa.Ocupada)
                 {
-                    _conta = _unit.ContaRepository.Cadastrar(new Conta() { MesaId = mesa.Id, UsuarioId = 1 }) as Conta;
-                    _conta.Pedido.Add(pedido);
+                    _conta = new Conta() { MesaId = p.MesaId, UsuarioId = 1 };
+                    _unit.ContaRepository.Cadastrar(_conta);
                     _unit.Salvar();
-                    //_unit.ContaRepository.Alterar(_conta);
-                    //_unit.Salvar();
+                    _conta.Pedido.Add(pedido);
+                    _unit.ContaRepository.Alterar(_conta);
+                    _unit.Salvar();
                     //TODO: terminar essa bagaça
                 }
                 else
@@ -46,6 +49,7 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
                     {
                         _conta = contas.First();
                         _conta.Pedido.Add(pedido);
+                        _unit.ContaRepository.Alterar(_conta);
                     }
                     else
                     {

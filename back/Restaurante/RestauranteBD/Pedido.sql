@@ -4,7 +4,7 @@
     [Viagem] BIT NOT NULL,
     [ContaId] INT NOT NULL, 
     [DataHora] DATETIME2 NOT NULL DEFAULT getdate(), 
-    [UsuarioId] INT NOT NULL, 
+    [UsuarioId] INT NULL, 
     [Entregue] BIT NOT NULL DEFAULT 0, 
     [Cancelado] BIT NOT NULL DEFAULT 0, 
     CONSTRAINT [FK_Pedido_ToConta] FOREIGN KEY ([ContaId]) REFERENCES [Conta]([Id]), 

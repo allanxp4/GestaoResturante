@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[PedidosDoProduto]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ProdutoId] INT NOT NULL, 
     [PedidoId] INT NOT NULL, 
     [Quantidade] INT NOT NULL, 

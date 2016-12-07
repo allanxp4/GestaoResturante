@@ -4464,6 +4464,7 @@
     <Content Include="Views\Produto\_cadastrar.cshtml" />
     <Content Include="Views\Produto\_editar.cshtml" />
     <Content Include="Views\Produto\_deletar.cshtml" />
+    <Content Include="Views\Garcom\_tabela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

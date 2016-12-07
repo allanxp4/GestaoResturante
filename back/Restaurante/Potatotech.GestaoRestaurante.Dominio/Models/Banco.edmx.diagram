@@ -19,7 +19,6 @@
         <AssociationConnector Association="RestauranteBDModel.FK_Pagamento_ToConta" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToConta" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Pagamento_ToTipo" ManuallyRouted="false" />
-        <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToUsuario" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Produto_ToTipo" ManuallyRouted="false" />
         <AssociationConnector Association="RestauranteBDModel.FK_Usuario_ToTipo" ManuallyRouted="false" />
         <EntityTypeShape EntityType="RestauranteBDModel.C__RefactorLog" Width="1.5" PointX="7.375" PointY="0.75" />
@@ -28,6 +27,7 @@
         <AssociationConnector Association="RestauranteBDModel.FK_PedidoProduto_ToProduto1" />
         <AssociationConnector Association="RestauranteBDModel.FK_Conta_ToMesa" />
         <AssociationConnector Association="RestauranteBDModel.FK_Conta_ToUsuario1" />
+        <AssociationConnector Association="RestauranteBDModel.FK_Pedido_ToUsuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
