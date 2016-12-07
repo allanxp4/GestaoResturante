@@ -8,6 +8,7 @@ namespace Potatotech.GestaoRestaurante.Services.DTOs
 {
     public class PedidoDto
     {
+        public int Id { get; set; }
         public int MesaId { get; set; }
         public ICollection<PedidosDoProdutoDto> PedidosDoProduto { get; set; }
         public bool Viagem { get; set; }
