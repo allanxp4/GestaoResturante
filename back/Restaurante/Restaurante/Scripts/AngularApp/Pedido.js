@@ -2,7 +2,7 @@
 appGarcom.controller('pedido-controller',
     function ($scope, $http) {
         $scope.pedido = {
-            produtos: []
+            Produtos: []
         };
 
         /* 
@@ -25,12 +25,13 @@ appGarcom.controller('pedido-controller',
             console.log($scope.select2.ProdutoAtual);
             $scope.select2.ProdutoAtual.Quantidade = $scope.qtd;
             $scope.select2.ProdutoAtual.uuid = Math.random();
-            $scope.pedido.produtos.push(JSON.parse(JSON.stringify($scope.select2.ProdutoAtual)));
+            $scope.select2.ProdutoAtual.ProdutoId = $scope.select2.ProdutoAtual.Id;
+            $scope.pedido.Produtos.push(JSON.parse(JSON.stringify($scope.select2.ProdutoAtual)));
             //gambis pra copiar o objeto
         }
 
         //Lista de produtos do pedido para serem enviados
-        $scope.pedido.produtos = [];
+        $scope.pedido.Produtos = [];
 
      
         //produtos de exemplo, na aplicação real eles virão do servidor
@@ -90,19 +91,19 @@ appGarcom.controller('pedido-controller',
         }
 
         $scope.apagarProduto = function() {
-            var index = $scope.pedido.produtos.indexOf($scope.produtoOpcoes.produto);
-            $scope.pedido.produtos.splice(index, 1);
+            var index = $scope.pedido.Produtos.indexOf($scope.produtoOpcoes.produto);
+            $scope.pedido.Produtos.splice(index, 1);
             $("#modal-opcoes").modal('toggle');
         }
 
 
         //Envio do pedido
         $scope.enviarPedido = function () {
-            
+            console.log($scope.pedido);
             $http.post('api/pedido', JSON.stringify($scope.pedido))
             .then(function () {
                 //Reseta o pedido
-                $scope.pedido = { produtos: [] };
+                $scope.pedido = { Produtos: [] };
                 toastr.success("Pedido enviado!");
             }, function (error) {
                 toastr.warning("Erro: " + error);
