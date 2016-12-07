@@ -4422,6 +4422,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\GarcomController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RestauranteController.cs" />
     <Compile Include="Controllers\TipoProdutoController.cs" />
@@ -4475,6 +4476,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Mappers\" />
+    <Folder Include="Views\Pedido\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

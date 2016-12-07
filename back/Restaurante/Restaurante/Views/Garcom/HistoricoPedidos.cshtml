@@ -11,22 +11,22 @@
     <div class="x_content">
         <table class="table table-hover">
             <thead>
-            <tr>
-                <th>Cód</th>
-                <th>Data/Hora</th>
-                <th>Detalhes</th>
-                <th>Cancelar</th>
+            <tr class="row">
+                <th class="col-md-1">Cód</th>
+                <th class="col-md-7">Data/Hora</th>
+                <th class="col-md-2">Detalhes</th>
+                <th class="col-md-2">Cancelar</th>
             </tr>
             </thead>
             <tbody>
             @foreach (var p in Model)
             {
-                <tr>
-                    <td>p.Id</td>
-                    <td>p.DataHora</td>
-                    <td><a class="btn btn-primary">Detalhes</a></td>
-                    <td><a class="btn btn-danger">Cancelar</a></td>
-                </tr>
+                    <tr class="row">
+                        <td class="col-md-1">@p.Id</td>
+                        <td class="col-md-7">@p.DataHora</td>
+                        <td class="col-md-2"><a class="btn btn-primary">Detalhes</a></td>
+                        <td class="col-md-2"><a class="btn btn-danger">Cancelar</a></td>
+                    </tr>
             }
 
             </tbody>
