@@ -17,7 +17,7 @@ namespace Potatotech.GestaoRestaurante.Persistencia.Repositories
         T BuscarPorId(int id);
         ICollection<T> BuscarPor(Expression<Func<T, bool>> filtro);
         ICollection<T> Paginar(int tamanho, int pagina);
-        ICollection<T> Paginar(int tamanho, int pagina, Expression<Func<T, bool>> filtro);
+        IEnumerable<T> Paginate<T, T2>(int size, int page, IQueryable<T> source, Expression<Func<T, T2>> getId);
 
     }
 }
