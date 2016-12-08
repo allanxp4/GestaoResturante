@@ -59,6 +59,13 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Buscar(string NomeBusca, int? IdBusca)
+        {
+            var lista = _unit.ProdutoRepository.BuscarPor(p => p.Nome.Contains(NomeBusca) && (p.TipoId) == IdBusca || IdBusca == null);
+
+            return PartialView("_tabela", lista);
+        }
         #endregion
 
         #region POST

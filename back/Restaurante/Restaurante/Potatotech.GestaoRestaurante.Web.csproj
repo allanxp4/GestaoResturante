@@ -4471,6 +4471,7 @@
     <Content Include="Views\Garcom\_tabela.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
     <Content Include="Views\TipoProduto\_tabela.cshtml" />
+    <Content Include="Views\Produto\_tabela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

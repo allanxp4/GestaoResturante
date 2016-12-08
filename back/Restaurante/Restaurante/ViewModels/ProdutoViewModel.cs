@@ -30,5 +30,7 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
         public virtual TipoProduto TipoProduto { get; set; }
 
         public string NomeBusca { get; set; }
+
+        public int IdBusca { get; set; }
     }
 }
