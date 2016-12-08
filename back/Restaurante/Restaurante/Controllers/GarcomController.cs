@@ -36,6 +36,8 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 
         // GET: Garcom
 
+        [HttpGet]
+
         public ActionResult Index()
 
         {
@@ -45,6 +47,8 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
         }
 
 
+
+        [HttpGet]
 
         public ActionResult Pedido()
 
@@ -56,15 +60,59 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 
 
 
+        
+
+        [HttpGet]
+
         public ActionResult HistoricoPedidos()
 
         {
 
+            return View();
+
+        }
+
+
+
+        [HttpGet]
+
+        public ActionResult TabelaPedidos(int pagina)
+
+        {
+
+            if (pagina < 1)
+
+            {
+
+                return HttpNotFound();
+
+            }
+
+            pagina -= 1;
+
+            int PAGE_SIZE = 5;
+
+            //TODO: Retornar direto do banco certo
+
             List<Pedido> pedidos = _unit.PedidoRepository.Listar().ToList();
 
-            var pedidosvm = Mapper.Map<List<PedidoViewModel>>(pedidos);
+            var pedidosPaginados = pedidos.OrderBy(p => p.Id).Skip(PAGE_SIZE * pagina).Take(PAGE_SIZE);
 
-            return View(pedidosvm);
+            var pedidosvm = Mapper.Map<List<PedidoViewModel>>(pedidosPaginados);
+
+
+
+            if (pedidosvm.Count < 1)
+
+            {
+
+                return HttpNotFound();
+
+            }
+
+
+
+            return PartialView("_tabela", pedidosvm);
 
         }
 

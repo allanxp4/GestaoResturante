@@ -4420,6 +4420,7 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\GarcomController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
@@ -4469,6 +4470,7 @@
     <Content Include="Views\Restaurante\_cadastrar.cshtml" />
     <Content Include="Views\Restaurante\_deletar.cshtml" />
     <Content Include="Views\Restaurante\_editar.cshtml" />
+    <Content Include="Views\Caixa\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
