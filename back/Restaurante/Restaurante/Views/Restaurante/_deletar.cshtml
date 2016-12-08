@@ -1,0 +1,26 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.RestauranteViewModel
+
+<div class="modal fade" id="Deletar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+            </div>
+            <div class="modal-body">
+                Deseja apagar?
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Deletar", "Restaurante"))
+                {
+                    <input type="hidden" id="idAmb" name="idAmb" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-primary">Sim</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

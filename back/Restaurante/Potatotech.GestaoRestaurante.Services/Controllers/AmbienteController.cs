@@ -30,7 +30,11 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
+        }
+
+        public Ambiente Get(int id)
+        {
+            return _unit.AmbienteRepository.BuscarPorId(id);
         }
     }
 }

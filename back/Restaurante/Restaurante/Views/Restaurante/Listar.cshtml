@@ -1,0 +1,65 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.RestauranteViewModel
+@{
+    ViewBag.Title = "Lista de ambientes";
+}
+
+<div class="x_panel">
+    <div class="x_title">
+
+        <div class="row">
+            <div class="col-md-10">
+                <h2>Lista de ambientes</h2>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Cadastrar">
+                    + Ambiente
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="x_content">
+        <table class="table">
+            <thead class="row">
+                <tr>
+                    <th class="col-md-1">Id</th>
+                    <th class="col-md-9">Nome</th>
+                    <th class="col-md-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model.listaAmbientes)
+                {
+                    <tr>
+                        <th>@a.Id</th>
+                        <th>@a.Nome</th>
+                        <td>
+                            <button data-id="@a.Id" class="btn btn-primary edit" data-toggle="modal" data-target="#Editar">Editar</button>
+                            <button onclick="idAmb.value = @a.Id " type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletar">Apagar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.Partial("_cadastrar")
+        @Html.Partial("_editar")
+        @Html.Partial("_deletar")
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $().ready(function () {
+            $(".edit").click(function () {
+                $.ajax({
+                    url: "http://localhost:8014/api/Ambiente/" + $(this).data("id"),
+                    method: "GET",
+                    success: function (data) {
+                        $("#cod").val(data.Id);
+                        $("#nome").val(data.Nome);
+                    }
+                })
+            })
+        })
+    </script>
+}

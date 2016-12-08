@@ -1,0 +1,29 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.RestauranteViewModel
+
+<div class="modal fade" id="Editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Editar ambiente</h4>
+            </div>
+            @using (Html.BeginForm("Editar", "Restaurante"))
+            {
+                <div class="modal-body">
+                    <input type="hidden" id="ambienteId" name="ambienteId" />
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.ambiente.Id)
+                        @Html.TextBoxFor(a => a.ambiente.Id, new { @class = "form-control", @readonly = "readonly", id = "cod" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.ambiente.Nome)
+                        @Html.TextBoxFor(a => a.ambiente.Nome, new { @class = "form-control", id = "nome" })
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block">Editar ambiente</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
