@@ -20,12 +20,6 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
         #region Get
 
-        /*[HttpGet]
-        public ActionResult Cadastrar()
-        {
-            return View();
-        }*/
-
         [HttpGet]
         public ActionResult Listar()
         {
@@ -35,16 +29,6 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             };
             return View(viewRestaurante);
         }
-
-        /*[HttpGet]
-        public ActionResult ListaAmbientes()
-        {
-            var listaAmb = _unit.AmbienteRepository.Listar().Select(a => new {
-                id = a.Id,
-                nome = a.Nome,
-            });
-            return Json(listaAmb, JsonRequestBehavior.AllowGet);
-        }*/
 
         #endregion
 

@@ -18,11 +18,6 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             return _unit.AmbienteRepository.Listar();
         }
 
-        public Ambiente Get(int id)
-        {
-            return _unit.AmbienteRepository.BuscarPorId(id);
-        }
-
         public IHttpActionResult Post(Ambiente ambiente)
         {
             if (ModelState.IsValid)
@@ -35,6 +30,11 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             {
                 return BadRequest(ModelState);
             }
+        }
+
+        public Ambiente Get(int id)
+        {
+            return _unit.AmbienteRepository.BuscarPorId(id);
         }
     }
 }
