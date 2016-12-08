@@ -13,22 +13,18 @@
                     <div class="form-group">
                         @Html.LabelFor(p => p.TipoId)
                         @Html.DropDownListFor(p => p.TipoId, Model.ListaTipoProduto, "Selecione", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.TipoId)
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(p => p.Nome)
                         @Html.TextBoxFor(p => p.Nome, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Nome)
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(p => p.Valor)
                         @Html.TextBoxFor(p => p.Valor, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Valor)
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(p => p.Imposto)
                         @Html.TextBoxFor(p => p.Imposto, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Imposto)
                     </div>
                 </div>
                 <div class="modal-footer">
