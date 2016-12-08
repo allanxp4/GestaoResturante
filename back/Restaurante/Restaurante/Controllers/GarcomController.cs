@@ -17,21 +17,45 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 
         private UnitOfWork _unit = new UnitOfWork();
         // GET: Garcom
+        [HttpGet]
         public ActionResult Index()
         {
             return RedirectToAction("Pedido");
         }
 
+        [HttpGet]
         public ActionResult Pedido()
         {
             return View();
         }
 
+        
+        [HttpGet]
         public ActionResult HistoricoPedidos()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult TabelaPedidos(int pagina)
+        {
+            if (pagina < 1)
+            {
+                return HttpNotFound();
+            }
+            pagina -= 1;
+            int PAGE_SIZE = 5;
+            //TODO: Retornar direto do banco certo
             List<Pedido> pedidos = _unit.PedidoRepository.Listar().ToList();
-            var pedidosvm = Mapper.Map<List<PedidoViewModel>>(pedidos);              
-            return View(pedidosvm);
+            var pedidosPaginados = pedidos.OrderBy(p => p.Id).Skip(PAGE_SIZE * pagina).Take(PAGE_SIZE);
+            var pedidosvm = Mapper.Map<List<PedidoViewModel>>(pedidosPaginados);
+
+            if (pedidosvm.Count < 1)
+            {
+                return HttpNotFound();
+            }
+
+            return PartialView("_tabela", pedidosvm);
         }
     }
 }

@@ -5,38 +5,53 @@
 }
 
 <div class="x_panel">
-    <div class="x_title">Histórico de pedidos</div>
+    <div class="x_title"><h6>Histórico de pedidos</h6></div>
     <div class="clearfix"></div>
     
     <div class="x_content">
-        <table class="table table-hover">
-            <thead>
-            <tr class="row">
-                <th class="col-md-1">Cód</th>
-                <th class="col-md-7">Data/Hora</th>
-                <th class="col-md-2">Detalhes</th>
-                <th class="col-md-2">Cancelar</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var p in Model)
-            {
-                <tr class="row">
-                    <td class="col-md-1">@p.Id</td>
-                    <td class="col-md-7">@p.DataHora</td>
-                    <td class="col-md-2"><a class="btn btn-primary">Detalhes</a></td>
-                    <td class="col-md-2"><a class="btn btn-danger">Cancelar</a></td>
-                </tr>
-            }
-
-            </tbody>
-        </table>
+        <div id="tabela-container">
+            <!-- tabela será inseida aqui -->
+        </div>
         <ul class="pagination">
             
-            <li><a href="#"><</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">></a></li>
+            <li onclick="paginaAnterior()"><a><</a></li>
+            <li class="active"><a id="pagina-atual">/1</a></li>
+            <li onclick="proximaPagina()"><a>></a></li>
 
         </ul>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        $(function() {
+            atualizarTabela(1);
+        });
+
+        function atualizarTabela(pagina) {
+            toastr.info("Carregando");
+            $.get('/Garcom/TabelaPedidos?pagina=' + pagina)
+                .done(function(data) {
+                    $('#tabela-container').html(data);
+                    $('#pagina-atual').html(pagina);
+                    toastr.clear();
+                })
+                .fail(function() {
+                    toastr.clear();
+                    toastr.warning("Página não encontrada");
+                });
+
+        }
+
+        function proximaPagina() {
+            
+            atualizarTabela(parseInt($('#pagina-atual').html()) + 1);
+            
+        }
+
+        function paginaAnterior() {
+            atualizarTabela($('#pagina-atual').html() - 1);
+        }
+
+    </script>
+}
