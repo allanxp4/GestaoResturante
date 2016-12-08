@@ -1,0 +1,87 @@
+﻿<div class="x_panel">
+    <div class="x_title">
+        <div class="row">
+            <div class="col-xs-10">
+                <h2>Mesas</h2>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class="btn btn-success" onclick="abrirModal()">
+                    Adicionar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    
+    <div class="x_content">
+        <div id="tabela-container">
+            
+        </div>
+        
+        <ul class="pagination">
+
+            <li onclick="paginaAnterior()"><a><</a></li>
+            <li class="active"><a id="pagina-atual">/1</a></li>
+            <li onclick="proximaPagina()"><a>></a></li>
+
+        </ul>
+    </div>
+    <div class="modal fade" tabindex="-1" id="modal-form" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content" id="modal-container">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+<script>
+    $(function () {
+        atualizarTabela(1);
+    });
+
+    function atualizarTabela(pagina) {
+        toastr.info("Carregando");
+        $.get('/Mesa/TabelaMesa?pagina=' + pagina)
+            .done(function (data) {
+                $('#tabela-container').html(data);
+                $('#pagina-atual').html(pagina);
+                toastr.clear();
+            })
+            .fail(function (error) {
+                console.log(error);
+                toastr.clear();
+                toastr.warning("Página não encontrada");
+            });
+
+    }
+
+    function proximaPagina() {
+
+        atualizarTabela(parseInt($('#pagina-atual').html()) + 1);
+
+    }
+
+    function paginaAnterior() {
+        atualizarTabela($('#pagina-atual').html() - 1);
+    }
+    
+    function abrirModal() {
+        toastr.info("Carregando");
+        $.get('/Mesa/FormMesa')
+            .done(function (data) {
+                console.log(data);
+                $('#modal-container').html(data);
+                $('#modal-form').modal('show');
+                toastr.clear();
+            })
+            .error(function() {
+                toastr.clear();
+                toastr.error("Erro");
+            });
+    }
+</script>
+}

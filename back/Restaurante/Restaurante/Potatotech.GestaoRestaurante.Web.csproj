@@ -4423,6 +4423,7 @@
     <Compile Include="Controllers\CaixaController.cs" />
     <Compile Include="Controllers\GarcomController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\MesaController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\RestauranteController.cs" />
@@ -4471,6 +4472,9 @@
     <Content Include="Views\Restaurante\_deletar.cshtml" />
     <Content Include="Views\Restaurante\_editar.cshtml" />
     <Content Include="Views\Caixa\Index.cshtml" />
+    <Content Include="Views\Mesa\Listar.cshtml" />
+    <Content Include="Views\Mesa\_tabela.cshtml" />
+    <Content Include="Views\Mesa\_adicionar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

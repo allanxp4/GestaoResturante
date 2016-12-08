@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using Potatotech.GestaoRestaurante.Dominio.Models;
 
 namespace Potatotech.GestaoRestaurante.Web.ViewModels
@@ -16,6 +17,8 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
 
         public virtual Ambiente Ambiente { get; set; }
         public virtual ICollection<Conta> Conta { get; set; }
+
+        public SelectList AmbienteSelectList { get; set; }
 
     }
 }

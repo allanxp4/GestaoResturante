@@ -1,0 +1,35 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.MesaViewModel
+    
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel2">Adicionar Novo</h4>
+</div>
+@using (Html.BeginForm("Adicionar", "Mesa"))
+{
+    <div class="modal-body">
+
+        <div class="modal-body">
+            <div class="form-group">
+                @Html.LabelFor(p => p.Id)
+                @Html.TextBoxFor(p => p.Id, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.Ambiente)
+                @Html.DropDownListFor(p => p.AmbienteId, Model.AmbienteSelectList, new {@class = "form-control"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.Capacidade)
+                @Html.TextBoxFor(p => p.Capacidade, new {@class = "form-control"})
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <input type="submit" class="btn btn-success" name="Adicionar"/>
+    </div>
+}
+

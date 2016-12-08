@@ -97,7 +97,6 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
                 TipoId = p.TipoId,
                 Nome = p.Nome,
                 Valor = p.Valor,
-                Imposto = p.Imposto
             };
 
             _unit.ProdutoRepository.Alterar(produto);

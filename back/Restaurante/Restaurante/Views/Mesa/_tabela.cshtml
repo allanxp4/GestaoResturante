@@ -1,0 +1,23 @@
+﻿@model List<Potatotech.GestaoRestaurante.Web.ViewModels.MesaViewModel>
+    
+<table class="table">
+    <thead>
+    <tr>
+        <th>Número</th>
+        <th>Capacidade</th>
+        <th>Ocupada</th>
+        <th>Ambiente</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Id</td>
+            <td>@m.Capacidade</td>
+            <td>@m.Ocupada</td>
+            <td>@m.Ambiente.Nome</td>
+        </tr>
+    }
+    </tbody>
+</table>

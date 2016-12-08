@@ -61,6 +61,7 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
                     _unit.ContaRepository.Cadastrar(_conta);
                     _unit.Salvar();
                     _conta.Pedido.Add(pedido);
+                    _conta.Mesa.Ocupada = true;
                     _unit.ContaRepository.Alterar(_conta);
                     _unit.Salvar();
                     
