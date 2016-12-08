@@ -18,10 +18,27 @@
                 </button>
             </div>
         </div>
+        <br />
 
     </div>
     <div class="x_content">
-        <table class="table">
+        @using (Ajax.BeginForm("Buscar", null, new AjaxOptions { HttpMethod = "get", UpdateTargetId = "tabela", InsertionMode = InsertionMode.Replace },
+                new { @class = "form-inline", id = "formBusca" }))
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.TextBoxFor(p => p.NomeBusca, new { @class = "form-control", placeholder = "Digite o nome" })
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownListFor(p => p.IdBusca, Model.ListaTipoProduto, "Todos tipos de produto", new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Buscar" class="btn btn-primary" id="btnBusca" />
+                </div>
+            </div>
+        }
+        <hr />
+        <table class="table table-hover">
             <thead class="row">
                 <tr>
                     <th class="col-md-2">Cod.</th>
@@ -32,21 +49,8 @@
                     <th class="col-md-2">Ações</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var p in Model.Produtos)
-                {
-                    <tr>
-                        <th>@p.Id</th>
-                        <th>@p.Nome</th>
-                        <th>@p.Valor</th>
-                        <th>@p.Imposto</th>
-                        <th>@p.TipoProduto.Nome</th>
-                        <td>
-                            <button data-id="@p.Id"  class="btn btn-primary edit" data-toggle="modal" data-target="#Editar">Editar</button>
-                            <button onclick="pId.value = @p.Id " type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletar">Apagar</button>
-                        </td>
-                    </tr>
-                }
+            <tbody id="tabela">
+                @Html.Partial("_tabela", Model.Produtos)
             </tbody>
         </table>
         @Html.Partial("_cadastrar")
@@ -70,6 +74,10 @@
                         $("#imposto").val(data.Imposto)
                     }
                 })
+            })
+
+            $("#IdBusca").change(function () {
+                $("#formBusca").submit();
             })
         })
     </script>

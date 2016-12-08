@@ -18,7 +18,6 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
 
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Por favor digite um valor")]
         public decimal Valor { get; set; }
 
         [Display(Name = "Valor Imposto ")]
@@ -29,5 +28,9 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
 
         public virtual ICollection<Pedido> Pedido { get; set; }
         public virtual TipoProduto TipoProduto { get; set; }
+
+        public string NomeBusca { get; set; }
+
+        public int IdBusca { get; set; }
     }
 }

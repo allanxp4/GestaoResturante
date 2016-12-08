@@ -6,22 +6,34 @@
 
 <div class="x_panel">
     <div class="x_title">
-
         <div class="row">
             <div class="col-md-11">
                 <h2>Lista de Tipo de Produto</h2>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1 ">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#Cadastrar">
                     +
                 </button>
             </div>
-
         </div>
-
     </div>
-    <div class="x_content">
-
+    <div class="x_context">
+        <div class="row">
+            @using (Ajax.BeginForm("Buscar", null, new AjaxOptions { HttpMethod = "get", UpdateTargetId = "tabela", InsertionMode = InsertionMode.Replace },
+new { @class = "form-inline", id = "formulariobusca" }))
+            {
+                <div class="form-group">
+                    @Html.TextBoxFor(p => p.NomeBusca, new { @class = "form-control", placeholder = "Digite o nome" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="btnBusca" , class="form-control btn btn-primary" value="Buscar" /> 
+                </div>              
+                
+               
+            }
+        </div>
+    <hr />
+    <div class="x_context">
         <table class="table table-hover">
             <thead class="row">
                 <tr>
@@ -30,18 +42,8 @@
                     <th class="col-md-2">Ações</th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var tp in Model.TiposProduto)
-                {
-                    <tr>
-                        <td>@tp.Id</td>
-                        <td>@tp.Nome</td>
-                        <td>
-                            <button data-id="@tp.Id" class="btn btn-primary edit" data-toggle="modal" data-target="#Editar">Editar</button>
-                            <button onclick="tipoId.value = @tp.Id" type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletar">Apagar</button>
-                        </td>
-                    </tr>
-                }
+            <tbody id="tabela">
+                @Html.Partial("_tabela", Model.TiposProduto)
             </tbody>
 
         </table>
@@ -49,8 +51,12 @@
         @Html.Partial("_editar")
         @Html.Partial("_deletar")
 
+        </div>
     </div>
 </div>
+
+
+
 
 @section scripts{
     <script>

@@ -1,0 +1,16 @@
+﻿@model List<Potatotech.GestaoRestaurante.Dominio.Models.Produto>
+
+@foreach (var p in Model)
+{
+    <tr>
+        <th>@p.Id</th>
+        <th>@p.Nome</th>
+        <th>@p.Valor</th>
+        <th>@p.Imposto</th>
+        <th>@p.TipoProduto.Nome</th>
+        <td>
+            <button data-id="@p.Id" class="btn btn-primary edit" data-toggle="modal" data-target="#Editar">Editar</button>
+            <button onclick="pId.value = @p.Id " type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deletar">Apagar</button>
+        </td>
+    </tr>
+}

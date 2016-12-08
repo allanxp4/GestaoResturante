@@ -4409,6 +4409,8 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\select.js" />
     <Content Include="Scripts\select.min.js" />
@@ -4475,6 +4477,9 @@
     <Content Include="Views\Mesa\Listar.cshtml" />
     <Content Include="Views\Mesa\_tabela.cshtml" />
     <Content Include="Views\Mesa\_adicionar.cshtml" />
+    <Content Include="Views\TipoProduto\_tabela.cshtml" />
+    <Content Include="Views\Produto\_tabela.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
