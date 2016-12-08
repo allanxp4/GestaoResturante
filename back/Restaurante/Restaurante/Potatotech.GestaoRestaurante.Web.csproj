@@ -4457,7 +4457,6 @@
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\TipoProduto\Listar.cshtml" />
     <Content Include="Views\Produto\Listar.cshtml" />
-    <Content Include="Views\Restaurante\Cadastrar.cshtml" />
     <Content Include="Views\Garcom\HistoricoPedidos.cshtml" />
     <Content Include="Views\TipoProduto\_cadastrar.cshtml" />
     <Content Include="Views\TipoProduto\_editar.cshtml" />
@@ -4466,6 +4465,10 @@
     <Content Include="Views\Produto\_editar.cshtml" />
     <Content Include="Views\Produto\_deletar.cshtml" />
     <Content Include="Views\Garcom\_tabela.cshtml" />
+    <Content Include="Views\Restaurante\Listar.cshtml" />
+    <Content Include="Views\Restaurante\_cadastrar.cshtml" />
+    <Content Include="Views\Restaurante\_deletar.cshtml" />
+    <Content Include="Views\Restaurante\_editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
