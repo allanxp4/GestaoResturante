@@ -21,7 +21,7 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
         public decimal Valor { get; set; }
 
         [Display(Name = "Valor Imposto ")]
-        public Nullable<decimal> Imposto { get; set; }
+        public decimal Imposto { get; set; }
 
         [Display(Name = "Tipo do Produto")]
         public int TipoId { get; set; }

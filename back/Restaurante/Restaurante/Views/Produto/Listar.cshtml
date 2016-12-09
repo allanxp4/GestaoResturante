@@ -50,7 +50,7 @@
                 </tr>
             </thead>
             <tbody id="tabela">
-                @Html.Partial("_tabela", Model.Produtos)
+                @Html.Partial("_tabela", Model.Produtos.ToList())
             </tbody>
         </table>
         @Html.Partial("_cadastrar")

@@ -56,7 +56,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         [HttpGet]
         public ActionResult Buscar( string nomeBusca)
         {
-          var lista = _unit.TipoProdutoRepository.BuscarPor(p => p.Nome.Contains(nomeBusca));
+          var lista = _unit.TipoProdutoRepository.BuscarPor(p => p.Nome.Contains(nomeBusca)).ToList();
 
             return PartialView("_tabela", lista);
         }

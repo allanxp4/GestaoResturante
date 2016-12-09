@@ -62,7 +62,10 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
         public ActionResult Buscar(string NomeBusca, int? IdBusca)
         {
-            var lista = _unit.ProdutoRepository.BuscarPor(p => p.Nome.Contains(NomeBusca) && (p.TipoId) == IdBusca || IdBusca == null);
+            var lista =
+                _unit.ProdutoRepository.BuscarPor(
+                    p => p.Nome.Contains(NomeBusca) && (p.TipoId) == IdBusca || IdBusca == null).ToList();
+
 
             return PartialView("_tabela", lista);
         }

@@ -65,17 +65,22 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
                     _unit.ContaRepository.Alterar(_conta);
                     _unit.Salvar();
                     
+   
                     return Created(Request.RequestUri + pedido.Id.ToString(), Mapper.Map<PedidoDto>(pedido));
                     
                 }
                 else
                 {
-                    var contas = _unit.ContaRepository.BuscarPor(c => c.MesaId == mesa.Id && c.Fechada == false);
+                    var contas = _unit.ContaRepository.BuscarPor(c => c.MesaId == p.MesaId && c.Fechada == false);
                     if (contas.Count == 1)
                     {
                         _conta = contas.First();
                         _conta.Pedido.Add(pedido);
                         _unit.ContaRepository.Alterar(_conta);
+                        _unit.Salvar();
+
+                        return Created(Request.RequestUri + pedido.Id.ToString(), Mapper.Map<PedidoDto>(pedido));
+
                     }
                     else
                     {

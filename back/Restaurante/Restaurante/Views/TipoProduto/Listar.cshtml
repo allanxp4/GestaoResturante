@@ -43,7 +43,7 @@ new { @class = "form-inline", id = "formulariobusca" }))
                 </tr>
             </thead>
             <tbody id="tabela">
-                @Html.Partial("_tabela", Model.TiposProduto)
+                @Html.Partial("_tabela", Model.TiposProduto.ToList())
             </tbody>
 
         </table>
