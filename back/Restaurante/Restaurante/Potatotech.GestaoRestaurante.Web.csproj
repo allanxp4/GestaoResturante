@@ -4479,7 +4479,7 @@
     <Content Include="Views\Mesa\_adicionar.cshtml" />
     <Content Include="Views\TipoProduto\_tabela.cshtml" />
     <Content Include="Views\Produto\_tabela.cshtml" />
-
+    <Content Include="Views\Caixa\DetalhesMesa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

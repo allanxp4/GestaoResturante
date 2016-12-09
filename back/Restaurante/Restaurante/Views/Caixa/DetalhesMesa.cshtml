@@ -1,0 +1,26 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.ContaViewModel
+
+<div class="x_panel">
+    <div class="x_title"><h4>Fechar Conta</h4></div>
+    <div class="clearfix"></div>
+    
+    <div class="x_content">
+        <table class="table">
+            <tbody>
+            @foreach (var pe in Model.Pedido)
+            {
+                foreach (var p in pe.PedidosDoProduto)
+                {
+                    <tr>
+                        <td>@p.Produto.Nome</td>
+                        <td>@p.Valor</td>
+                        <td>@p.Quantidade</td>
+
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+        <a href="/Caixa/FinalizarMesa/1"></a>
+    </div>
+</div>
