@@ -1,0 +1,97 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.UserViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Registrar</title>
+
+    <!-- Bootstrap -->
+    <link href="/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.css" />
+    <!-- Custom Theme Style -->
+    <link href="/Content/css/custom.min.css" rel="stylesheet">
+    <link href="/Content/css/ajustes.css" rel="stylesheet">
+
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="/Content/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/Content/vendors/nprogress/nprogress.js"></script>
+    <!-- Ajax -->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="/Content/custom.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#login").click(function () {
+                window.location.href = "Login";
+            });
+        });
+    </script>
+    <style type="text/css">
+        #login {
+            color: #e7e7e7;
+            background-color: #2A3F54
+        }
+    </style>
+</head>
+
+<body class="login">
+    <div>
+        <!--<a class="hiddenanchor" id="signup"></a>-->
+        <!--<a class="hiddenanchor" id="signin"></a>-->
+        <div class="login_wrapper">
+            <div id="register" class="animate form">
+                @Html.ValidationSummary()
+                <section class="login_content">
+                    @using (Html.BeginForm("Registrar", "User"))
+                    {
+                        <h1>Criar uma conta</h1>
+                        <div>
+                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "nome", @required = "required" })
+                            @Html.ValidationMessageFor(u => u.UserName)
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @placeholder = "email", @required = "required" })
+                            @Html.ValidationMessageFor(u => u.Email)
+                        </div>
+                        <div>
+                            @Html.PasswordFor(u => u.Password, new { @class = "form-control", @placeholder = "senha", @required = "required" })
+                            @Html.ValidationMessageFor(u => u.Password)
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Helper.Submit("Cadastrar conta", "btn btn-default submit")
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-default" id="login">Voltar ao login</button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                        </div>
+                    }
+                </section>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -2,3 +2,13 @@
 {
     <input type="submit" value="@name" class="@classe" />
 }
+
+@helper Message(object mensagem, string classe)
+{
+    if (mensagem != null)
+    {
+        <div class="@classe">
+            @mensagem
+        </div>
+    }
+}
