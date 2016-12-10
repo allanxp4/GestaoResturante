@@ -39,7 +39,7 @@
     <script src="/Content/custom.min.js"></script>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#login").click(function () {
                 window.location.href = "Login";
             });
@@ -48,15 +48,13 @@
     <style type="text/css">
         #login {
             color: #e7e7e7;
-            background-color: #2A3F54
+            background-color: #2A3F54;
         }
     </style>
 </head>
 
 <body class="login">
     <div>
-        <!--<a class="hiddenanchor" id="signup"></a>-->
-        <!--<a class="hiddenanchor" id="signin"></a>-->
         <div class="login_wrapper">
             <div id="register" class="animate form">
                 @Html.ValidationSummary()
@@ -78,15 +76,25 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                @Helper.Submit("Cadastrar conta", "btn btn-default submit")
+                                @Html.LabelFor(u => u.TipoId, "Garçom")
+                                @Html.RadioButtonFor(u => u.TipoId, 1)
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-default" id="login">Voltar ao login</button>
+                                @Html.LabelFor(u => u.TipoId, "Caixa")
+                                @Html.RadioButtonFor(u => u.TipoId, 2)
                             </div>
                         </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Helper.Submit("Cadastrar conta", "btn btn-default submit")
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-default" id="login">Voltar ao login</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="separator">
+                            </div>
                     }
                 </section>
 

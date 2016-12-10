@@ -11,6 +11,7 @@ using Potatotech.GestaoRestaurante.Web.ViewModels;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
+    [Authorize]
     public class ProdutoController : Controller
     {
         #region PRIVATE

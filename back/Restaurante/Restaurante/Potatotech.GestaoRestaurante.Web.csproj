@@ -4492,7 +4492,6 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Index.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Views\Garcom\Pedido.cshtml" />
@@ -4521,6 +4520,7 @@
     <Content Include="Views\Caixa\DetalhesMesa.cshtml" />
     <Content Include="Views\User\Registrar.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

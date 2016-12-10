@@ -20,7 +20,8 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
         public string Password { get; set; }
         [HiddenInput]
         public string ReturnUrl { get; set; }
-
+        [Required]
+        public int TipoId { get; set; }
         public string Mensagem { get; set; }
     }
 }

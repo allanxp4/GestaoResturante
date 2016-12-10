@@ -62,6 +62,13 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult LogOut()
+        {
+            GetAuthenticationManager().SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("LogIn", "User", new { msg = "Volte smepre!" });
+        }
+
         #endregion
 
         #region Post
@@ -77,6 +84,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             {
                 Email = model.Email,
                 UserName = model.UserName,
+                TipoId = model.TipoId
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -97,7 +105,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return RedirectToAction("Pedido", "Garcom");
             }
             var user = await userManager.FindAsync(model.Email, model.Password);
             if (user != null)
@@ -110,12 +118,6 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult LogOut()
-        {
-            GetAuthenticationManager().SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("LogIn", "User");
-        }
         #endregion
 
         #region Dispose

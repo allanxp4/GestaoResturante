@@ -9,6 +9,6 @@ namespace Potatotech.GestaoRestaurante.Dominio.Models
 {
     public class User : IdentityUser
     {
-        public int TipoId { get; set; }
+        
     }
 }
