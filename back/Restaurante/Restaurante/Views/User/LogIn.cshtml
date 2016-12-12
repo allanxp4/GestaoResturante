@@ -38,13 +38,6 @@
     <!-- Custom Theme Scripts -->
     <script src="/Content/custom.min.js"></script>
 
-    <script>
-        $(document).ready(function(){
-            $("#registrar").click(function () {
-                document.location.href = "Registrar";
-            });
-        });
-    </script>
     <style type="text/css">
         #registrar {
             color: #e7e7e7;
@@ -75,7 +68,7 @@
                                 @Helper.Submit("Login", "btn btn-default submit")
                             </div>
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-default" id="registrar">Cadastra-se</button>
+                            <a href="/User/Registrar" type="button" class="btn btn-default" id="registrar">Cadastrar-se</a>
                             </div>
                         </div>
                         <div class="clearfix"></div>

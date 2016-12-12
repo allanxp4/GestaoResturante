@@ -13,8 +13,6 @@ namespace Potatotech.GestaoRestaurante.Services.DTOs
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public decimal Imposto { get; set; }
-        public SelectList ListaTipoProduto { get; set; }
-        public virtual TipoProduto TipoProduto { get; set; }
-
+        
     }
 }
