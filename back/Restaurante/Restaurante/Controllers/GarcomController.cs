@@ -15,7 +15,7 @@ using Potatotech.GestaoRestaurante.Web.ViewModels;
 namespace Potatotech.GestaoRestaurante.Repositories.Controllers
 
 {
-    [Authorize]
+   
     public class GarcomController : Controller
 
     {

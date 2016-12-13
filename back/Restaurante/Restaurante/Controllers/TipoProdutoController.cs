@@ -9,7 +9,7 @@ using Potatotech.GestaoRestaurante.Persistencia.UnitsOfWork;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
-    [Authorize]
+    
     public class TipoProdutoController : Controller
     {
 
