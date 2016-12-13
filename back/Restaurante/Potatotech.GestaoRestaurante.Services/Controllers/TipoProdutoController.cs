@@ -11,14 +11,16 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
 {
     public class TipoProdutoController : ApiController
     {
-
+        #region PRIVATE
         private UnitOfWork _unit = new UnitOfWork();
-
+        #endregion PRIVATE
         // GET: TipoProduto
+        #region GET
         public TipoProduto Get(int id)
         {
             return _unit.TipoProdutoRepository.BuscarPorId(id);
         }
+        #endregion GET
 
     }
 }

@@ -16,15 +16,20 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
 {
     public class PedidoController : ApiController
     {
+        #region PRIVATE
         private UnitOfWork _unit = new UnitOfWork();
         private Conta _conta;
+        #endregion
 
+        #region GET
         public ICollection<PedidoDto> Get()
         {
             var listaRaw =_unit.PedidoRepository.Listar();
             return Mapper.Map<ICollection<PedidoDto>>(listaRaw);
         }
+        
 
+        
         public PedidoDto Get(int id)
         {
             var pedidoRaw = _unit.PedidoRepository.BuscarPorId(id);
@@ -35,7 +40,9 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             }
             throw new HttpResponseException(HttpStatusCode.NotFound);
         }
+        #endregion
 
+        #region PUT
         public IHttpActionResult Put(PedidoDto p)
         {
             if (ModelState.IsValid)
@@ -46,7 +53,10 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             }
             return BadRequest(ModelState);
         }
+        #endregion
 
+
+        #region POST
         public IHttpActionResult Post(PedidoDto p)
         {
             if (ModelState.IsValid)
@@ -91,7 +101,9 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             }
             return BadRequest(ModelState);
         }
+        #endregion
 
+        #region DELETE
         public IHttpActionResult Delete(int id)
         {
             //Para manter o histórico, um pedido nunca é apagado, apenas mostrado como cancelado.
@@ -100,5 +112,6 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             _unit.Salvar();
             return Ok();
         }
+        #endregion
     }
 }

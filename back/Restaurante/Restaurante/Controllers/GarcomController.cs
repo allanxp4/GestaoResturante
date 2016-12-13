@@ -19,10 +19,12 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
     public class GarcomController : Controller
 
     {
+        #region PRIVATE
         private UnitOfWork _unit = new UnitOfWork();
-
+        #endregion
         // GET: Garcom
 
+        #region GET
         [HttpGet]
 
         public ActionResult Index()
@@ -68,6 +70,7 @@ namespace Potatotech.GestaoRestaurante.Repositories.Controllers
             }
             return PartialView("_tabela", pedidosvm);
         }
+        #endregion
 
     }
 

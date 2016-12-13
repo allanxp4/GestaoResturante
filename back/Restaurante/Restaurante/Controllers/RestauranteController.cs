@@ -13,13 +13,13 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
     public class RestauranteController : Controller
     {
 
-        #region Private
+        #region PRIVATE
 
         UnitOfWork _unit = new UnitOfWork();
 
         #endregion
 
-        #region Get
+        #region GET
 
         [HttpGet]
         public ActionResult Listar()
@@ -33,7 +33,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
         #endregion
 
-        #region Post
+        #region POST
 
         [HttpPost]
         public ActionResult Cadastrar(RestauranteViewModel viewRestaurante)
@@ -69,7 +69,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             return RedirectToAction("Listar");
         }
 
-        #endregion
+        #endregion POST
 
     }
 }

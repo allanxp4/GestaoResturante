@@ -12,8 +12,11 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
    
     public class CaixaController : Controller
     {
+        #region PRIVATE
         public UnitOfWork _unit = new UnitOfWork();
+        #endregion PRIVATE
         // GET: Caixa
+        #region GET
         [HttpGet]
         public ActionResult Index()
         {
@@ -37,5 +40,6 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             
             return View(Mapper.Map<ContaViewModel>(conta.First()));
         }
+        #endregion GET
     }
 }
