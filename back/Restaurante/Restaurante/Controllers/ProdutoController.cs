@@ -11,7 +11,7 @@ using Potatotech.GestaoRestaurante.Web.ViewModels;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
-    [Authorize]
+   
     public class ProdutoController : Controller
     {
         #region PRIVATE
@@ -119,14 +119,15 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
         #endregion
 
-      
 
+        #region SELECT
         private SelectList ListarTipoProduto()
         {
             var lista = _unit.TipoProdutoRepository.Listar();
 
             return new SelectList(lista, "Id", "Nome");
         }
+        #endregion SELECT
 
         #region DISPOSE
 

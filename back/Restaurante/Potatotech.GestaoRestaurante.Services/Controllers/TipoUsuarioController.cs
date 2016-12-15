@@ -11,13 +11,18 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
 {
     public class TipoUsuarioController : ApiController
     {
+        #region PRIVATE
         private UnitOfWork _unit = new UnitOfWork();
+        #endregion
 
+        #region GET
         public ICollection<TipoUsuario> Get()
         {
             return _unit.TipoUsuarioRepository.Listar();
         }
+        #endregion GET
 
+        #region POST
         public IHttpActionResult Post(TipoUsuario tipoUsuario)
         {
             if (ModelState.IsValid)
@@ -30,5 +35,6 @@ namespace Potatotech.GestaoRestaurante.Services.Controllers
             return BadRequest(ModelState);
             
         }
+        #endregion POST
     }
 }

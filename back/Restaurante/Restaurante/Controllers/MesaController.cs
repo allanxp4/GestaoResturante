@@ -11,9 +11,10 @@ using Potatotech.GestaoRestaurante.Web.ViewModels;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
-    [Authorize]
+   
     public class MesaController : Controller
     {
+
         private UnitOfWork _unit = new UnitOfWork();
         // GET: Mesa
 
@@ -76,12 +77,15 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         }
 
         #endregion
+
+        #region SELECT
         private SelectList SelectAmbiente()
         {
             var ambientes = _unit.AmbienteRepository.Listar();
             return new SelectList(ambientes, "Id", "Nome");
         }
-    
+        #endregion
+
 
     }
 
