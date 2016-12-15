@@ -51,7 +51,7 @@ appGarcom.controller('pedido-controller',
         $scope.atualizarSelect = function (termo) {
             $http({
                 method: 'GET',
-                url: 'api/Produto?termo=' + termo,
+                url: '/api/Produto?termo=' + termo,
             }).then(function (dados) {
                 console.log(dados);
                 $scope.produtos = dados.data;
@@ -100,7 +100,7 @@ appGarcom.controller('pedido-controller',
         //Envio do pedido
         $scope.enviarPedido = function () {
             console.log($scope.pedido);
-            $http.post('api/pedido', JSON.stringify($scope.pedido))
+            $http.post('/api/pedido', JSON.stringify($scope.pedido))
             .then(function () {
                 //Reseta o pedido
                 $scope.pedido = { Produtos: [] };
