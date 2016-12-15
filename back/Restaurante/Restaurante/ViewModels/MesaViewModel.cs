@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Potatotech.GestaoRestaurante.Dominio.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Potatotech.GestaoRestaurante.Web.ViewModels
 {

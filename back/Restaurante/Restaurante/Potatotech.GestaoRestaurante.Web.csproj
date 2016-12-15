@@ -4465,6 +4465,7 @@
     <Compile Include="Controllers\MesaController.cs" />
     <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\RecepcaoController.cs" />
     <Compile Include="Controllers\RestauranteController.cs" />
     <Compile Include="Controllers\TipoProdutoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -4479,6 +4480,7 @@
     <Compile Include="ViewModels\PagamentoViewModel.cs" />
     <Compile Include="ViewModels\PedidoViewModel.cs" />
     <Compile Include="ViewModels\ProdutoViewModel.cs" />
+    <Compile Include="ViewModels\RecepcaoViewModel.cs" />
     <Compile Include="ViewModels\RestauranteViewModel.cs" />
     <Compile Include="ViewModels\TipoPagamentoViewModel.cs" />
     <Compile Include="ViewModels\TipoProdutoViewModel.cs" />
@@ -4521,6 +4523,8 @@
     <Content Include="Views\User\Registrar.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Recepcao\Listar.cshtml" />
+    <Content Include="Views\Recepcao\_tabela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

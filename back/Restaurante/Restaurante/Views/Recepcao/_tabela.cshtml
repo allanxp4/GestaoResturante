@@ -1,0 +1,23 @@
+﻿@model List<Potatotech.GestaoRestaurante.Dominio.Models.Mesa>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Capacidade</th>
+            <th>Status</th>
+            <th>Ambiente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.Capacidade</td>
+                <td>@(m.Ocupada ? "Ocupada" : "Livre")</td>
+                <td>@m.Ambiente.Nome</td>
+            </tr>
+        }
+    </tbody>
+</table>

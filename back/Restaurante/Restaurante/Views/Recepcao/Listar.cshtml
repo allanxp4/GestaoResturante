@@ -1,0 +1,18 @@
+﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.RecepcaoViewModel
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+
+<div class="x_panel">
+    <div class="x_tittle">
+        <h3>Lista de Mesas</h3>
+    </div>
+    <div class="x_content">
+       @Html.Partial("_tabela", Model.Mesas.ToList())
+    </div>
+</div>
+
+
+
