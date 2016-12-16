@@ -28,5 +28,35 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
 
             return View(viewModel);
         }
+
+        public ActionResult AlterarStatus(int id)
+        {
+            var viewModel = new RecepcaoViewModel();
+            var mesa = _unit.MesaRepository.BuscarPorId(id);
+
+            if (mesa.Ocupada == false)
+            {
+                viewModel = new RecepcaoViewModel()
+                {
+                    
+                    Ocupada = true
+                };
+                mesa.Ocupada = true;
+            }
+            else
+            {
+                viewModel = new RecepcaoViewModel()
+                {
+                    Ocupada = false
+                };
+
+                mesa.Ocupada = false;
+            }
+
+            _unit.MesaRepository.Alterar(mesa);
+            _unit.Salvar();
+
+            return RedirectToAction("Listar");
+        }
     }
 }

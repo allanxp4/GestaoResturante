@@ -14,6 +14,7 @@ namespace Potatotech.GestaoRestaurante.Web.ViewModels
         public int MesaId { get; set; }
 
         public virtual Mesa Mesa { get; set; }
+        public bool Ocupada { get; set; }
 
 
     }

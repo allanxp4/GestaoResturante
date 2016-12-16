@@ -8,11 +8,36 @@
 <div class="x_panel">
     <div class="x_tittle">
         <h3>Lista de Mesas</h3>
+        <hr />
     </div>
     <div class="x_content">
-       @Html.Partial("_tabela", Model.Mesas.ToList())
+        <table class="table table-hover">
+            <thead class="row">
+                <tr>
+                    <th class="col-md-2">Número</th>
+                    <th class="col-md-2">Capacidade</th>
+                    <th class="col-md-2">Status</th>
+                    <th class="col-md-2">Ambiente</th>
+                    <th class="col-md-2">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.Mesas)
+                {
+                    <tr>
+                        <td>@m.Id</td>
+                        <td>@m.Capacidade</td>
+                        <td>@(m.Ocupada ? "Ocupada" : "Livre")</td>
+                        <td>@m.Ambiente.Nome</td>
+                        <td>@Html.ActionLink("Alterar Status", "AlterarStatus", new { id = @m.Id }, new { @class = "btn btn-primary" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
+
+
 
 
 
