@@ -17,10 +17,16 @@ namespace Potatotech.GestaoRestaurante.Web.App_Start
         public static Func<UserManager<User>> UserManagerFactory { get; private set; }
         public void Configuration(IAppBuilder app)
         {
+            //
+
+            //app.CreatePerOwinContext(() => new UserContext());
+            //app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
+
+            //
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/User/LogIn")
+                LoginPath = new PathString("/User/Login")
             });
             UserManagerFactory = () => {
                 var usermanager = new UserManager<User>(new UserStore<User>(new UserContext())); // permite caracteres alfa numéricos no username usermanager.UserValidator = new UserValidator<Usuario>(usermanager) { AllowOnlyAlphanumericUserNames = false };

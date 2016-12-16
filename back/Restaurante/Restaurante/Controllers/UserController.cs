@@ -52,12 +52,11 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult LogIn(string url, string msg)
+        public ActionResult LogIn(string returnUrl)
         {
             var model = new UserViewModel
             {
-                ReturnUrl = url,
-                Mensagem = msg
+                ReturnUrl = returnUrl
             };
             return View(model);
         }
@@ -66,56 +65,60 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         public ActionResult LogOut()
         {
             GetAuthenticationManager().SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("LogIn", "User", new { msg = "Volte smepre!" });
+            return RedirectToAction("LogIn", "User");
         }
-
         #endregion
 
         #region Post
+
 
         [HttpPost]
         public async Task<ActionResult> Registrar(UserViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View("Registrar");
             }
+
             var user = new User
             {
                 Email = model.Email,
                 UserName = model.UserName,
                 TipoId = model.TipoId
             };
+
             var result = await userManager.CreateAsync(user, model.Password);
+
             if (result.Succeeded)
             {
                 var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
                 GetAuthenticationManager().SignIn(identity);
-                return RedirectToAction("LogIn", "User", new { msg = "Cadastrado com sucesso" } );
+                return RedirectToAction("Pedido", "Garcom");
             }
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", "Troxa");
+                ModelState.AddModelError("", error);
             }
-            return View();
+
+            return View("Registrar");
         }
 
         [HttpPost]
         public async Task<ActionResult> LogIn(UserViewModel model)
         {
-            if (!ModelState.IsValid)
+            /*if (!ModelState.IsValid)
             {
-                return RedirectToAction("Pedido", "Garcom");
-            }
-            var user = await userManager.FindAsync(model.Email, model.Password);
+                return View("Login");
+            }*/
+            var user = await userManager.FindAsync(model.UserName, model.Password);
             if (user != null)
             {
                 var identity = await userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
                 GetAuthenticationManager().SignIn(identity);
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
+                return RedirectToAction("Pedido", "Garcom");
             }
             ModelState.AddModelError("", "Usuário e/ou Senha inválidos");
-            return View();
+            return View("Login");
         }
 
         #endregion

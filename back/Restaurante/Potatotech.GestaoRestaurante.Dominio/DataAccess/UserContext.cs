@@ -11,5 +11,5 @@ namespace Potatotech.GestaoRestaurante.Dominio.DataAccess
 {
     public class UserContext : IdentityDbContext<User>
     {
-	}
+    }
 }

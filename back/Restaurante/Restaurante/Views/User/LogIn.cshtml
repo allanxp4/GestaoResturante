@@ -50,14 +50,14 @@
     <div>
         <div class="login_wrapper">
             <div class="animate form login_form">
-                @Helper.Message(Model.Mensagem, "alert alert-success")
+                <!--@@Helper.Message(Model.Mensagem, "alert alert-success")-->
                 <section class="login_content">
-                    @using (Html.BeginForm("LogIn", "User"))
+                    @using (Html.BeginForm("Login", "User"))
                     {
                         <h1>Entrar</h1>
                         <div>
-                            @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @placeholder = "email", @required = "required" })
-                            @Html.ValidationMessageFor(u => u.Email)
+                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "nome", @required = "required" })
+                            @Html.ValidationMessageFor(u => u.UserName)
                         </div>
                         <div>
                             @Html.PasswordFor(u => u.Password, new { @class = "form-control", @placeholder = "senha", @required = "required" })
@@ -68,7 +68,7 @@
                                 @Helper.Submit("Login", "btn btn-default submit")
                             </div>
                             <div class="col-md-6">
-                            <a href="/User/Registrar" type="button" class="btn btn-default" id="registrar">Cadastrar-se</a>
+                                <a href="/User/Registrar" type="button" class="btn btn-default" id="registrar">Cadastrar-se</a>
                             </div>
                         </div>
                         <div class="clearfix"></div>
