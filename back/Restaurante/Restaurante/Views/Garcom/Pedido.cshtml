@@ -20,7 +20,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-4">
-                                    <input type="number" min="1" max="999" id="mesa" ng-model="pedido.MesaId" placeholder="Mesa" class="form-control" required>
+                                    <input type="number" min="1" max="9999" id="mesa" ng-model="pedido.MesaId" placeholder="Mesa" class="form-control" required>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 pull-right normalize">
                                     <div class="input-group">
@@ -83,7 +83,7 @@
                                         <td>{{ p.Id }}</td>
                                         <td>{{ p.Nome }}</td>
                                         <td>{{ p.Quantidade }}</td>
-                                        <td>{{ p.Valor * p.Quantidade}}</td>
+                                        <td>{{ p.Valor * p.Quantidade }}</td>
                                     </tr>
                                     </tbody>
 

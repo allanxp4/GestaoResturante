@@ -6,8 +6,25 @@
 <div class="x_panel">
     <div class="x_title"><h4>Fechar Conta</h4></div>
     <div class="form-group">
-        <input class="form-control input-lg" />
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="mesa_id">Numero da mesa:</label>
+                <input id="mesa_id" class="form-control input-lg"/>
+            </div>
+            <div class="col-sm-4">
+                <button id="btn-go"class="btn btn-primary" onclick="irCaixa()" style="padding-top: 20px">Ir</button>
+            </div>
+        </div>
     </div>
-
 </div>
+
+@section Scripts {
+    <script>
+        function irCaixa() {
+            var id = $("#mesa_id").val();
+            window.location.href = '/Caixa/DetalhesMesa/' + id;
+        }
+
+    </script>
+}
 
