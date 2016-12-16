@@ -56,7 +56,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             _unit.MesaRepository.Alterar(mesa);
             _unit.Salvar();
 
-            return RedirectToAction("Listar");
+            return RedirectToAction("Listar", viewModel);
         }
     }
 }
