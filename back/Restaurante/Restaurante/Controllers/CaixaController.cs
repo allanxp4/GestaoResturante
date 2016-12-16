@@ -47,6 +47,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
             }
             var conta = contas.First();
             conta.Fechada = true;
+            conta.Mesa.Ocupada = false;
             _unit.ContaRepository.Alterar(conta);
             _unit.Salvar();
             return View(Mapper.Map<ContaViewModel>(conta));
