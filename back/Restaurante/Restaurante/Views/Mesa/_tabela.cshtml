@@ -1,12 +1,13 @@
 ﻿@model List<Potatotech.GestaoRestaurante.Web.ViewModels.MesaViewModel>
     
 <table class="table">
-    <thead>
+    <thead class="row">
     <tr>
-        <th>Número</th>
-        <th>Capacidade</th>
-        <th>Ocupada</th>
-        <th>Ambiente</th>
+        <th class="col-md-2">Número</th>
+        <th class="col-md-2">Capacidade</th>
+        <th class="col-md-2">Status</th>
+        <th class="col-md-2">Ambiente</th>
+        <th class="col-md-2">Ações</th>
     </tr>
     </thead>
     <tbody>
@@ -15,7 +16,7 @@
         <tr>
             <td>@m.Id</td>
             <td>@m.Capacidade</td>
-            <td>@m.Ocupada</td>
+            <td>@(m.Ocupada ? "Ocupada" : "Livre")</td>
             <td>@m.Ambiente.Nome</td>
         </tr>
     }
