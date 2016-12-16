@@ -1,4 +1,7 @@
 ﻿@model Potatotech.GestaoRestaurante.Web.ViewModels.ContaViewModel
+@{
+    decimal total = 0;
+}
 
 <div class="x_panel">
     <div class="x_title">
@@ -26,11 +29,14 @@
                         <td>@p.Produto.Nome</td>
                         <td>@p.Valor</td>
                         <td>@p.Quantidade</td>
-
+                        @{
+                            total += p.Valor;
+                        }
                     </tr>
                 }
             }
             </tbody>
         </table>
+        <h4>Total: @total</h4>
     </div>
 </div>
