@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
-   
+    [Authorize]
     public class RestauranteController : Controller
     {
 

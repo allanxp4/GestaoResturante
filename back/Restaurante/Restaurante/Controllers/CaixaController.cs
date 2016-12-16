@@ -11,7 +11,7 @@ using Potatotech.GestaoRestaurante.Web.ViewModels;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
-
+    [Authorize]
     public class CaixaController : Controller
     {
         #region PRIVATE

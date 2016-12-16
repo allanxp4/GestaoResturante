@@ -9,9 +9,9 @@ using System.Web.Mvc;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
+    [Authorize]
     public class RecepcaoController : Controller
     {
-
         private UnitOfWork _unit = new UnitOfWork();
 
         [HttpGet]

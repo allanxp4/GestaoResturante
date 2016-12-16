@@ -56,7 +56,7 @@
                     {
                         <h1>Criar uma conta</h1>
                         <div>
-                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "nome", @required = "required" })
+                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "login", @required = "required" })
                             @Html.ValidationMessageFor(u => u.UserName)
                         </div>
                         <div>

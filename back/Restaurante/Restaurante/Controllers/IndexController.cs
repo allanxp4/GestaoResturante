@@ -2,6 +2,7 @@
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
+    [Authorize]
     public class IndexController : Controller
     {
         #region GET

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Potatotech.GestaoRestaurante.Web.Controllers
 {
-    
+    [Authorize]
     public class PedidoController : Controller
     {
         // GET: Pedido

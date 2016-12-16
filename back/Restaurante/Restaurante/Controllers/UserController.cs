@@ -52,11 +52,12 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult LogIn(string returnUrl)
+        public ActionResult LogIn(string returnUrl, string msg)
         {
             var model = new UserViewModel
             {
-                ReturnUrl = returnUrl
+                ReturnUrl = returnUrl,
+                Mensagem = msg
             };
             return View(model);
         }
@@ -65,7 +66,7 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         public ActionResult LogOut()
         {
             GetAuthenticationManager().SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("LogIn", "User");
+            return RedirectToAction("LogIn", "User", new { msg = "Volte sempre" });
         }
         #endregion
 
@@ -106,10 +107,6 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> LogIn(UserViewModel model)
         {
-            /*if (!ModelState.IsValid)
-            {
-                return View("Login");
-            }*/
             var user = await userManager.FindAsync(model.UserName, model.Password);
             if (user != null)
             {
@@ -117,8 +114,9 @@ namespace Potatotech.GestaoRestaurante.Web.Controllers
                 GetAuthenticationManager().SignIn(identity);
                 return RedirectToAction("Pedido", "Garcom");
             }
+            model.Mensagem = "Usuário e/ ou Senha inválidos";
             ModelState.AddModelError("", "Usuário e/ou Senha inválidos");
-            return View("Login");
+            return View("Login", model);
         }
 
         #endregion

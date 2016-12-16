@@ -50,13 +50,13 @@
     <div>
         <div class="login_wrapper">
             <div class="animate form login_form">
-                <!--@@Helper.Message(Model.Mensagem, "alert alert-success")-->
+                @Helper.Message(Model.Mensagem, "alert alert-success")
                 <section class="login_content">
                     @using (Html.BeginForm("Login", "User"))
                     {
                         <h1>Entrar</h1>
                         <div>
-                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "nome", @required = "required" })
+                            @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", @placeholder = "login", @required = "required" })
                             @Html.ValidationMessageFor(u => u.UserName)
                         </div>
                         <div>
